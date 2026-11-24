@@ -1,0 +1,16 @@
+﻿country,point,layer,title,count,truncated,status,error
+Spain,1,line_values,Lignes REE — tension et capacité transport (MVA),0,False,OK - aucun objet proche,
+Spain,1,transmission_nodes,Nœuds de transport CNMC — capacité d'accès,2,False,OK,
+Spain,1,distribution_nodes,Nœuds de distribution CNMC — capacité d'accès,1,False,OK,
+Spain,2,line_values,Lignes REE — tension et capacité transport (MVA),13,False,OK,
+Spain,2,transmission_nodes,Nœuds de transport CNMC — capacité d'accès,3,False,OK,
+Spain,2,distribution_nodes,Nœuds de distribution CNMC — capacité d'accès,2,False,OK,
+Spain,3,line_values,Lignes REE — tension et capacité transport (MVA),0,False,OK - aucun objet proche,
+Spain,3,transmission_nodes,Nœuds de transport CNMC — capacité d'accès,4,False,OK,
+Spain,3,distribution_nodes,Nœuds de distribution CNMC — capacité d'accès,12,False,OK,
+France,1,line_values,Lignes aériennes RTE/ODRÉ — tension (kV),0,False,NON_GEOLOCALISE,ODRÉ/RTE a retiré les géométries GPS détaillées des nouveaux jeux publics; les lignes ne peuvent pas être associées de façon fiable à ces points GPS.
+France,1,substation_values,Postes RTE/ODRÉ — fonction et tension (kV),0,False,NON_GEOLOCALISE,"Le jeu ODRÉ public liste fonction et tension, mais ne fournit pas de géométrie GPS exploitable pour une recherche par rayon autour du point."
+France,2,line_values,Lignes aériennes RTE/ODRÉ — tension (kV),0,False,NON_GEOLOCALISE,ODRÉ/RTE a retiré les géométries GPS détaillées des nouveaux jeux publics; les lignes ne peuvent pas être associées de façon fiable à ces points GPS.
+France,2,substation_values,Postes RTE/ODRÉ — fonction et tension (kV),0,False,NON_GEOLOCALISE,"Le jeu ODRÉ public liste fonction et tension, mais ne fournit pas de géométrie GPS exploitable pour une recherche par rayon autour du point."
+France,3,line_values,Lignes aériennes RTE/ODRÉ — tension (kV),0,False,NON_GEOLOCALISE,ODRÉ/RTE a retiré les géométries GPS détaillées des nouveaux jeux publics; les lignes ne peuvent pas être associées de façon fiable à ces points GPS.
+France,3,substation_values,Postes RTE/ODRÉ — fonction et tension (kV),0,False,NON_GEOLOCALISE,"Le jeu ODRÉ public liste fonction et tension, mais ne fournit pas de géométrie GPS exploitable pour une recherche par rayon autour du point."

@@ -1,0 +1,19 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Étude PV · dashboard final</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#eef2f7;color:#152238;font:14px Segoe UI,Arial,sans-serif}
+header{padding:18px 22px 10px;background:#fff;border-bottom:1px solid #d9e1eb}h1{margin:0 0 5px;font-size:23px}
+p{margin:0;color:#526176}nav{display:flex;gap:8px;flex-wrap:wrap;padding:11px 18px;background:#fff}
+.tab{border:1px solid #cbd5e1;background:#f8fafc;color:#334155;border-radius:8px;padding:9px 13px;cursor:pointer;font-weight:650}
+.tab.active{background:#173f6b;color:white;border-color:#173f6b}.views{padding:0 14px 14px}.external{display:inline-block;margin-top:9px;color:#075985;font-weight:700;text-decoration:none}.external:hover{text-decoration:underline}
+.view{display:none;width:100%;height:calc(100vh - 150px);min-height:650px;border:1px solid #d9e1eb;border-radius:10px;background:white}
+.view.active{display:block}@media(max-width:700px){header{padding:14px}.views{padding:0 7px 8px}.view{height:calc(100vh - 175px);min-height:560px}}
+</style></head><body><header><h1>Étude de préfaisabilité photovoltaïque</h1>
+<p>Le tableau de bord s’ouvre sur l’implantation SIGPAC retenue, après retrait des routes et bâtiments vérifiés. L’ancienne pré-implantation OSM reste consultable pour comparaison.</p>
+<a class="external" href="https://openinframap.org/#15.5/36.77694/-2.83834" target="_blank" rel="noopener">Comparer le réseau avec OpenInfraMap ↗</a>
+<p style="font-size:12px;margin-top:4px">Cette carte spécialisée visualise les équipements cartographiés dans OpenStreetMap ; elle offre un rendu différent, pas une source de données indépendante.</p></header>
+<nav><button class="tab active" data-page="parcels">Implantation retenue · SIGPAC / Catastro</button><button class="tab" data-page="connection">Raccordement depuis le site retenu</button><button class="tab" data-page="site">Pré-implantation OSM · non retenue</button></nav><main class="views"><iframe class="view active" id="view-parcels" src="cadastral_site_options.html" title="Implantation retenue · SIGPAC / Catastro" loading="eager"></iframe><iframe class="view" id="view-connection" src="connection_planning.html" title="Raccordement depuis le site retenu" loading="lazy"></iframe><iframe class="view" id="view-site" src="site_plan_dashboard.html" title="Pré-implantation OSM · non retenue" loading="lazy"></iframe></main>
+<script>document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{
+document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x===b));
+document.querySelectorAll('.view').forEach(x=>x.classList.toggle('active',x.id==='view-'+b.dataset.page));
+}));</script></body></html>

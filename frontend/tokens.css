@@ -1,0 +1,15 @@
+:root {
+  color-scheme: light;
+  --ink: #20232b;
+  --green: #075bc9;
+  --muted: #5d6370;
+  --yellow: #ffd77b;
+  --border: #dce0e8;
+  --canvas: #f2f3f7;
+  --surface: #fff;
+  --glass: rgb(255 255 255 / 94%);
+  --accent-soft: #eaf2ff;
+  --control-radius: 9px;
+  --panel-radius: 16px;
+  --map-shadow: 0 1px 2px #17283f12, 0 12px 32px #17283f1c;
+}

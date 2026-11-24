@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f2f3f7">
+  <title>Atlas Solaire — Étude photovoltaïque</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23075bc9'/%3E%3Ccircle cx='16' cy='16' r='8' fill='%23ffd77b'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/assets/vendor/leaflet.css"><link rel="stylesheet" href="/assets/styles.css">
+<link rel="stylesheet" href="/assets/workspace.css"></head>
+<body data-view="projet">
+<header class="app-header">
+  <a class="brand" href="/" aria-label="Atlas Solaire, accueil"><span class="brand-mark">◒</span><span>atlas<span class="brand-light">solaire</span><small>ÉTUDE & IMPLANTATION</small></span></a>
+  <div class="header-divider"></div><div class="project-heading"><span class="eyebrow">ESPACE DE TRAVAIL</span><span id="project-heading">Nouveau projet photovoltaïque</span></div>
+  <div class="header-actions"><span class="local-status" id="api-status"><i></i>Connexion…</span><button class="button ghost" id="history-button"><span data-icon="history"></span>Projets récents</button><button class="button export-button" id="export-button" disabled><span data-icon="download"></span>Exporter</button></div>
+</header>
+<main class="workspace">
+  <aside class="project-panel" id="project-panel">
+    <div class="panel-heading"><div><span class="eyebrow">PARAMÈTRES</span><h1>Votre projet</h1></div><button class="icon-button mobile-close" id="close-panel" aria-label="Fermer les paramètres" data-icon="close"></button></div>
+    <form id="project-form">
+      <label class="field">Nom du projet<input id="project-name" name="name" value="Mon projet solaire" maxlength="100" required></label>
+      <button type="button" class="button ghost reset-project" id="reset-project">↻ Recommencer une analyse</button>
+      <section class="form-section"><div class="section-title"><span class="section-number">01</span><h2>Zone de recherche</h2><span class="tag">FRANCE</span></div>
+        <input type="hidden" name="country" id="country" value="France"><p class="field-help">France métropolitaine et Corse · zone découpée en secteurs locaux.</p>
+        <div class="coordinate-fields"><label class="field">Latitude<input type="number" id="lat" name="lat" min="41" max="51.5" step="any" value="43.61" required></label><label class="field">Longitude<input type="number" id="lon" name="lon" min="-5.5" max="10" step="any" value="3.88" required></label></div>
+        <button type="button" class="text-button" id="locate-project"><span data-icon="locate"></span>Utiliser ma position</button>
+        <div id="map-radius">
+          <div class="label-with-value"><label for="radius">Rayon de recherche</label><span><input type="number" id="radius-value" min="0.1" max="1000" step="0.1" value="10" required aria-label="Rayon en kilomètres"> km</span></div>
+          <input type="range" name="radius" id="radius" min="0.1" max="1000" step="0.1" value="10">
+        </div>
+      </section>
+      <section class="form-section"><div class="section-title"><span class="section-number">02</span><h2>Installation photovoltaïque</h2></div>
+        <label class="field">Surface totale de modules<div class="input-unit"><input type="number" name="surface" id="surface" min="10" max="10000000" value="10000" step="10" required><span>m²</span></div></label>
+        <div class="power-preview"><span>Puissance estimée</span><strong id="power-preview">2,10 <small>MWc</small></strong></div>
+        <div class="coordinate-fields"><label class="field">De quelle année ?<select name="start" id="start" required></select></label><label class="field">Jusqu’à quelle année ?<select name="end" id="end" required></select></label></div>
+        <p class="field-help" id="weather-period-help">Années complètes uniquement, depuis 2022.</p>
+        <p class="field-help" id="solar-cache-status">Base solaire locale SQLite · chargement à la demande.</p>
+      </section>
+      <section class="form-section"><div class="section-title"><span class="section-number">03</span><h2>Raccordement souhaité</h2></div>
+        <p class="field-help">Cochez les tensions de ligne ou d’enroulement acceptées. Les ouvrages sans tension publiée restent visibles, mais ne servent pas de cible.</p>
+        <fieldset id="connection-voltages" class="voltage-options"><legend>Tensions acceptées (kV)</legend></fieldset>
+        <p class="field-help" id="voltage-help">La tension ne prouve pas une capacité d’injection disponible.</p>
+      </section>
+      <details class="settings-group"><summary><span data-icon="sliders"></span>Données territoriales<span class="chevron">⌄</span></summary><div class="settings-content">
+        <label class="field">Cadastre · extrait local (facultatif)<input type="file" id="cadastre-file" accept=".json,.geojson"></label>
+        <p class="field-help">GeoJSON WGS84 avec identifiants des parcelles. Sans fichier, l’extrait IGN / DGFiP est récupéré automatiquement.</p>
+        <p class="field-help"><strong>GPU</strong> · les zonages et les servitudes sont récupérés pour chaque secteur et croisés avec le cadastre.</p>
+        <label class="field">Millésime RPG<input type="number" name="rpg_year" value="2024" min="2015" step="1" required></label>
+        <label class="field">RPG · extrait local du millésime (facultatif)<input type="file" id="rpg-file" accept=".json,.geojson"></label>
+        <p class="field-help">Le recouvrement RPG indique la présence de parcelles agricoles déclarées. L’éligibilité du projet reste à établir.</p>
+      </div></details>
+      <details class="settings-group"><summary><span data-icon="sliders"></span>Solaire et terrain<span class="chevron">⌄</span></summary><div class="settings-content">
+        <label class="field">Secteurs étudiés par passe<input type="number" name="max_sectors" min="1" max="8" value="6"></label>
+        <div class="coordinate-fields"><label class="field">Inclinaison (°)<input type="number" name="tilt" value="30" min="0" max="60" step="1"></label><label class="field">Performance<input type="number" name="pr" value="0.8" min="0.5" max="0.95" step="0.01"></label></div>
+        <div class="coordinate-fields"><label class="field">Modules (Wc/m²)<input type="number" name="density" id="density" value="210" min="100" max="300"></label><label class="field">Couverture au sol<input type="number" name="coverage" value="0.4" min="0.1" max="0.8" step="0.05"></label></div>
+        <label class="field">Budget de points météo<input type="number" name="point_budget" value="32" min="4" max="32" step="2"></label>
+        <label class="field">Réutilisation depuis la base solaire<select name="weather_reuse_m"><option value="0">Point exact uniquement</option><option value="250">Point voisin à 250 m maximum</option><option value="500" selected>Point voisin à 500 m maximum</option><option value="1000">Point voisin à 1 km maximum</option></select></label><p class="field-help">Même modèle, période et inclinaison. La distance de réutilisation est indiquée ; ce n’est pas une nouvelle mesure.</p>
+        <div class="coordinate-fields"><label class="field">Perte solaire max. (%)<input type="number" name="loss" value="3" min="0" max="20"></label><label class="field">Déplacement max. (km)<input type="number" name="move" value="3" min="0.25" max="10" step="0.25"></label></div>
+        <div class="coordinate-fields"><label class="field">Rayon cadastre (km)<input type="number" name="parcel_radius" value="1" min="0.1" max="3" step="0.1"></label></div>
+      </div></details>
+      <details class="settings-group"><summary><span data-icon="coins"></span>Hypothèses de coût<span class="chevron">⌄</span></summary><div class="settings-content">
+        <p class="field-help">Fourchettes de présélection en euros HT, à remplacer par vos devis.</p><div id="cost-inputs"></div>
+        <label class="check-line"><input type="checkbox" name="build_transformer">Inclure un transformateur commun neuf</label>
+        <div class="coordinate-fields"><label class="field">Détour des câbles<input type="number" name="detour" value="1.3" min="1" max="3" step="0.1"></label><label class="field">Provision pour aléas<input type="number" name="contingency" value="0.25" min="0" max="1" step="0.05"></label></div>
+        <div class="coordinate-fields"><label class="field">Collecteur (kV)<input type="number" name="collector_voltage" value="20" min="1" max="50"></label><label class="field">Ratio DC/AC<input type="number" name="dc_ac_ratio" value="1.2" min="1" max="2" step="0.05"></label></div>
+        <div class="coordinate-fields"><label class="field">Cos φ<input type="number" name="power_factor" value="0.95" min="0.5" max="1" step="0.01"></label><label class="field">Marge transformateur<input type="number" name="transformer_margin" value="0.2" min="0" max="1" step="0.05"></label></div>
+        <label class="field">Prix du terrain<select name="price_mode"><option>Ventes locales comparables</option><option>Hypothèse manuelle</option><option value="Référence nationale">Référence agricole départementale</option><option>Non chiffré</option></select></label>
+        <div class="coordinate-fields"><label class="field">Achat (€/m²)<input type="number" name="manual_price" value="0.65" min="0" max="1000" step="0.01"></label><label class="field">Sensibilité foncière<input type="number" name="price_uncertainty" value="0.5" min="0" max="1" step="0.05"></label></div>
+        <label class="field">Surface à acquérir<select name="land_basis"><option>Parcelles entières</option><option>Emprise PV seulement</option></select></label>
+      </div></details>
+      <details class="settings-group"><summary><span data-icon="upload"></span>Données complémentaires<span class="chevron">⌄</span></summary><div class="settings-content">
+        <label class="field">Inventaire électrique vérifié<input type="file" id="inventory-file" accept=".csv"></label><p class="field-help">CSV : asset_id, source ; tensions en V, puissance en kVA. Rapprochement par identifiant exact.</p>
+        <label class="check-line"><input type="checkbox" name="automatic_ratings">Complément OSM brut</label>
+      </div></details>
+      <div id="form-error" class="form-error" role="alert" hidden></div>
+      <div class="panel-footer"><button type="submit" class="button primary" id="analyze-button"><span data-icon="sparkles"></span>Analyser le territoire<span class="button-arrow">↗</span></button><button type="button" class="button secondary" id="network-button"><span data-icon="network"></span>Explorer le réseau uniquement</button><p><i class="status-dot"></i>Données conservées localement</p></div>
+    </form>
+  </aside>
+  <section class="map-workspace" aria-label="Carte interactive du projet">
+    <div id="map"></div>
+    <div class="map-toolbar"><button class="icon-button mobile-menu" id="open-panel" data-icon="sliders" aria-label="Ouvrir les paramètres"></button><div class="layer-chips" aria-label="Couches de la carte"><button class="layer-chip active" data-layer="solar"><i class="layer-dot solar"></i>Potentiel solaire</button><button class="layer-chip" data-layer="network"><i class="layer-dot network"></i>Réseau électrique</button><button class="layer-chip" data-layer="pv"><i class="layer-dot pv"></i>Parcelles & PV</button><button class="layer-chip" data-layer="congestion" aria-pressed="false">Congestion HTA/BT</button><button class="layer-chip" data-layer="constraints">Urbanisme et servitudes</button></div><button class="icon-button" id="basemap-button" data-icon="layers" aria-label="Changer le fond de carte" title="Changer le fond de carte"></button></div>
+    <div class="map-tools"><button class="icon-button" id="zoom-in" data-icon="plus" aria-label="Zoom avant"></button><button class="icon-button" id="zoom-out" data-icon="minus" aria-label="Zoom arrière"></button><span></span><button class="icon-button" id="fit-project" data-icon="frame" aria-label="Cadrer le projet" title="Cadrer la zone"></button><button class="icon-button" id="edit-location" data-icon="pin" aria-label="Modifier le centre" title="Modifier le centre du projet" aria-pressed="true"></button></div>
+    <div class="map-intro" id="map-intro"><span class="intro-icon" data-icon="sun"></span><div><strong>Le bon emplacement commence ici.</strong><p>Choisissez une zone, puis comparez son potentiel et son raccordement.</p></div><button class="icon-button" id="dismiss-intro" data-icon="close" aria-label="Masquer le conseil"></button></div>
+    <div class="metrics-strip" id="metrics-strip" hidden></div>
+    <div class="map-legend congestion-legend" id="congestion-legend" hidden></div>
+    <div class="map-legend" id="solar-legend" hidden><div><strong>Irradiance moyenne</strong><span>W/m²</span></div><div class="legend-gradient"></div><div class="legend-labels"><span id="legend-min">0</span><span id="legend-max">300</span></div><small>Moyenne horaire · nuits comprises</small></div>
+    <div class="selection-pill"><span data-icon="pin"></span><span id="selection-label">43,61000° N · 3,88000° E</span><span class="pill-divider"></span><strong id="radius-label">10 km</strong></div>
+    <div class="progress-card" id="progress-card" hidden role="status" aria-live="polite"><div class="progress-title"><span class="spinner"></span><strong id="progress-phase">Analyse en cours</strong><button class="text-button" id="cancel-job">Annuler</button></div><div class="progress-track"><i></i></div><p id="progress-message"></p><details><summary>Journal de récupération</summary><pre id="progress-log"></pre></details></div>
+    <aside class="results-panel" id="results-panel" hidden aria-label="Résultats du projet"><div class="results-heading"><div><span class="eyebrow">ÉTUDE DU TERRITOIRE</span><h2 id="results-title">Résultats de l'analyse</h2></div><button class="icon-button" id="collapse-results" data-icon="minus" aria-label="Réduire les résultats"></button></div><nav class="results-tabs" aria-label="Détails des résultats"><button class="active" data-tab="overview">Résultat</button><button data-tab="electricity">Raccordement <span id="electricity-count">0</span></button><button data-tab="parcels">Parcelles</button><button data-tab="constraints">À vérifier</button></nav><div class="results-content" id="results-content"></div></aside>
+    <button class="button results-reopen" id="reopen-results" hidden><span data-icon="chart"></span>Afficher les résultats</button>
+    <aside class="asset-inspector" id="asset-inspector" hidden><button class="icon-button" id="close-inspector" data-icon="close" aria-label="Fermer l'ouvrage"></button><div id="asset-details"></div></aside>
+    <span class="map-source">© OpenStreetMap · Open Infrastructure Map</span>
+  </section>
+</main>
+<div class="toast" id="toast" hidden role="status"></div>
+<dialog id="history-dialog"><div class="dialog-heading"><div><span class="eyebrow">ENREGISTRÉS SUR CET ORDINATEUR</span><h2>Projets récents</h2></div><button class="icon-button" data-close-dialog data-icon="close" aria-label="Fermer"></button></div><div id="history-list"></div></dialog>
+<dialog id="export-dialog"><div class="dialog-heading"><h2>Exporter le projet</h2><button class="icon-button" data-close-dialog data-icon="close" aria-label="Fermer"></button></div><div id="export-list"></div></dialog>
+<script src="/assets/vendor/leaflet.js"></script><script type="module" src="/assets/app.js?v=20261118-economics"></script>
+</body></html>

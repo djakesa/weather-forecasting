@@ -1,0 +1,1 @@
+"""Local Atlas Solaire API."""

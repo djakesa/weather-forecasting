@@ -1,0 +1,263 @@
+body{font-size:14px}[hidden]{display:none!important}
+.app-header{height:72px;padding:0 26px;gap:16px;border-bottom:1px solid var(--border);box-shadow:none}.brand{font-size:22px}.brand small,.header-divider,.project-heading,.local-status{display:none}.brand-mark{width:34px;height:34px;border-radius:5px;background:var(--green);color:#fff0b2;font-size:33px}.brand-light{color:#53677a}.header-actions{margin-left:auto;gap:10px}.header-actions .button{font-size:12px;padding:10px}.workspace-nav{display:flex;gap:6px}.workspace-nav button{font:inherit;font-size:12px;border:0;background:white;color:var(--green);cursor:pointer;padding:10px}.workspace-nav button:hover{text-decoration:underline}
+.workspace{height:calc(100dvh - 72px)}.project-panel{position:relative;top:auto;left:auto;bottom:auto;transform:none;width:350px;min-width:350px;box-shadow:none;border-right:1px solid var(--border);background:white;overflow:auto}.panel-heading{padding:28px 26px 12px}.panel-heading .eyebrow{font-size:10px;color:#68798b;letter-spacing:1px}.panel-heading h1{font-size:27px;line-height:1.22;letter-spacing:-.6px;margin-top:9px;color:#17324e}.project-intro{padding:0 26px 24px;color:#526579;font-size:14px;line-height:1.6}.mobile-close,.form-steps{display:none!important}
+.form-section{padding:22px 26px;margin:0;border-top:1px solid var(--border)}.section-title{margin-bottom:16px}.section-title h2{font-size:16px}.section-number,.form-section .tag{display:none}.form-section:first-of-type>.field-help{display:none}.field{font-size:13px;font-weight:500;color:#263e57}.field input,.field select{font-size:15px;min-height:44px;border:1px solid #b8c5d3;border-radius:4px;background:white}.field-help{font-size:12px;line-height:1.55;font-weight:400;color:#607184}.text-button{font-size:13px;color:var(--green)}.label-with-value{margin-top:16px;font-size:13px}.label-with-value input{font-size:16px;width:76px;text-align:right;padding:7px;border:1px solid #b8c5d3;border-radius:4px}.form-section input[type=range]{margin-top:16px;accent-color:var(--green)}.gps-entry{margin-top:18px}.gps-entry summary{font-size:12px;color:var(--green);cursor:pointer}.gps-entry .coordinate-fields{margin-top:12px}
+.surface-field{display:block;margin:22px 26px!important}.surface-field:before{content:'2. Surface de panneaux';display:block;font-size:16px;font-weight:650;margin-bottom:14px}.surface-field .input-unit{margin-top:8px}.surface-field input{font-size:21px;font-weight:600}.surface-field .field-help{margin-top:8px}
+.advanced-settings{margin:18px 26px 10px;padding-top:18px;border-top:1px solid var(--border)}.advanced-settings>summary{font-size:13px;color:var(--green);cursor:pointer}.advanced-content{padding-top:18px}.advanced-content>.field{margin:0 0 18px!important}.advanced-content .form-section{padding:18px 0}.advanced-content .section-title h2{font-size:14px}.advanced-content .settings-group{margin:12px 0;border-radius:4px}.advanced-content .settings-content{padding:14px 8px}.advanced-content .field input,.advanced-content .field select{font-size:13px}.advanced-content .power-preview{display:none}.advanced-content #network-button{font-size:12px;margin-top:16px}
+.panel-footer{position:static;padding:16px 26px 24px;background:white;border:0}.panel-footer .primary{display:flex;justify-content:space-between;min-height:48px;padding:14px 18px;background:var(--green);border:0;border-radius:4px;font-size:15px;font-weight:600;box-shadow:none}.panel-footer>p{font-size:11px;color:#697b8e;margin-top:13px}.panel-footer>p i{display:none}.reset-project{margin:0 26px 15px;font-size:12px;padding:0;border:0}
+.map-workspace{flex:1;min-width:0;position:relative}.map-intro{top:24px;left:24px;bottom:auto;padding:13px 17px;gap:10px;max-width:calc(100% - 92px);border:1px solid #d8e2eb;border-radius:5px;box-shadow:var(--map-shadow);pointer-events:none}.map-intro strong{font-size:13px;font-weight:500;color:#263e56}.map-hint-dot{height:9px;width:9px;border-radius:50%;background:var(--green);flex-shrink:0}.map-tools{right:20px;top:24px}.selection-pill{left:24px;bottom:24px;border-radius:4px;font-size:11px}.map-toolbar{top:22px;left:24px}.layer-chips{border-radius:5px;padding:4px}.layer-chip{font-size:11px;padding:9px 11px}.layer-chip.active{background:#edf3fa;color:var(--green)}.map-legend{border-radius:5px;bottom:76px}.metrics-strip{display:none!important}
+body[data-view=projet] .map-toolbar,body[data-view=projet] .results-panel,body[data-view=projet] .asset-inspector,body[data-view=projet] .map-legend,body[data-view=projet] .results-reopen{display:none!important}body[data-view=carte] .project-panel,body[data-view=bilan] .project-panel{display:none}body[data-view=carte] .map-intro{display:none}
+.results-panel{width:355px;top:88px;bottom:24px;right:20px;max-height:none;border:1px solid #d9e2eb;border-radius:6px;box-shadow:var(--map-shadow)}.results-heading{padding:20px 20px 12px}.results-heading .eyebrow{display:none}.results-heading h2{font-size:19px;color:#183653}.results-tabs button{font-size:11px;color:#546c83}.results-tabs button.active{color:var(--green);border-color:var(--green)}.results-content{padding:18px 20px;font-size:13px;line-height:1.6}.results-content .result-intro{font-size:13px;line-height:1.6;margin-bottom:14px}.results-content .result-note{font-size:12px;line-height:1.6}.scenario-card{border:1px solid #dbe4ed;border-radius:4px;padding:16px}.scenario-card.selected{border:2px solid var(--green);background:#f6f9fe}.scenario-index,.status-badge{display:none}.scenario-title{font-size:14px}.scenario-values strong{font-size:18px}.scenario-note{font-size:11px}.compare-results{margin:14px 0}.compare-results>summary{font-size:12px;color:var(--green);cursor:pointer}.compare-results .scenario-card{margin-top:10px}.info-line{padding:10px 0;gap:16px;font-size:12px}.info-line>span{color:#5d7185}.info-line>strong{color:#233d56;overflow-wrap:anywhere}.mini-heading{font-size:12px}.source-link{font-size:11px}.results-content>details{margin-top:14px}.results-content>details>summary{color:var(--green);font-size:12px;cursor:pointer}.monthly-chart{display:none}.asset-inspector{left:24px;top:90px;width:320px;border-radius:5px;max-height:calc(100% - 120px);padding:20px}.asset-inspector h3{color:#183653}.asset-inspector .voltage-hero{color:var(--green);font-size:23px}.asset-inspector .info-line{font-size:12px}.cable-details{border:1px solid #d9e4ef;border-radius:4px;padding:16px;background:#f6f9fe;margin-bottom:16px}.cable-details h3{font-size:16px;margin-bottom:10px}.map-voltage-label{background:white;border:1px solid #a9c1da;padding:2px 5px;color:#244f7b;white-space:nowrap;font-size:11px!important}.pv-map-label{background:#217957;color:white;border:2px solid white;border-radius:4px;padding:3px 7px;font-weight:700;white-space:nowrap}
+body[data-view=bilan] .map-workspace{background:#f5f7fa;overflow:auto}body[data-view=bilan] #map,body[data-view=bilan] .map-toolbar,body[data-view=bilan] .map-tools,body[data-view=bilan] .map-intro,body[data-view=bilan] .map-legend,body[data-view=bilan] .selection-pill,body[data-view=bilan] .map-source,body[data-view=bilan] .results-reopen{display:none!important}body[data-view=bilan] .results-panel{position:relative;top:auto;left:auto;right:auto;bottom:auto;width:calc(100% - 48px);max-width:900px;max-height:none;margin:28px auto;box-shadow:none}body[data-view=bilan] .results-content{padding:24px 30px;max-height:none;overflow:visible}body[data-view=bilan] .results-heading{padding:26px 30px 14px}body[data-view=bilan] .results-tabs{justify-content:flex-start;gap:16px}body[data-view=bilan] #collapse-results{display:none}
+@media(max-width:850px){.app-header{height:64px;padding:0 16px}.brand{font-size:20px}.workspace{height:calc(100dvh - 64px)}.project-panel{width:320px;min-width:320px}.header-actions{gap:4px}.workspace-nav button{padding:7px 5px;font-size:11px}.map-tools{right:15px;top:20px}.map-toolbar{left:15px;top:20px}.results-panel{width:330px;max-height:65%;top:auto;bottom:20px}.mobile-menu{display:none!important}.asset-inspector{top:80px;width:calc(100% - 30px);left:15px;max-height:55%}}
+@media(max-width:560px){.app-header{padding:0 14px;gap:6px}.brand{font-size:18px;gap:7px}.brand-mark{width:28px;height:28px;font-size:27px}.header-actions .button{font-size:11px;padding:7px}.header-actions .ghost{font-size:0}.workspace-nav [data-view=bilan]{display:none}body[data-view=projet] .workspace{display:flex;flex-direction:column;overflow:auto}body[data-view=projet] .map-workspace{order:0;flex:none;width:100%;height:260px;min-height:260px;display:block}body[data-view=projet] .project-panel{order:1;width:100%;min-width:100%;height:auto;flex:none;overflow:visible;border:0}.panel-heading{padding:22px 22px 10px}.panel-heading h1{font-size:24px}.project-intro{padding:0 22px 18px}.form-section{padding:18px 22px}.surface-field{margin:18px 22px!important}.advanced-settings{margin:16px 22px}.panel-footer{padding:16px 22px 22px}.map-intro{left:12px;top:12px;padding:10px 12px;max-width:calc(100% - 70px)}.map-intro strong{font-size:11px}.map-tools{top:12px;right:12px}.selection-pill{left:12px;bottom:10px;font-size:9px}.results-panel{left:12px;right:12px;width:auto;max-height:52%;bottom:16px}.map-toolbar{left:12px;right:12px}.layer-chip{font-size:0;min-width:38px}.asset-inspector{top:85px;max-height:50%}body[data-view=bilan] .results-panel{width:calc(100% - 24px);margin:16px auto}body[data-view=bilan] .results-content{padding:18px}}
+.surface-field{font-size:16px;font-weight:650}.surface-field:before{content:none}.surface-field .input-unit{margin-top:14px}.surface-field .input-unit span{font-size:13px}.technical-summary .monthly-chart{display:flex}.technical-summary .info-line{font-size:11px}
+@media(max-width:560px){body[data-view=projet] .panel-footer{position:sticky;bottom:0;z-index:5;border-top:1px solid var(--border)}}
+body[data-view=projet] #edit-location{display:none}
+@media(max-width:560px){.header-actions #export-button{font-size:0;width:34px;padding:8px;gap:0}.header-actions #export-button svg{width:17px;height:17px}}
+@media(max-width:560px){body[data-view=projet] .map-workspace{height:190px;min-height:190px}.panel-heading{padding:16px 22px 8px}.panel-heading h1{font-size:22px}.project-intro{padding:0 22px 14px;font-size:13px;line-height:1.5}.form-section{padding:14px 22px}.section-title{margin-bottom:12px}.label-with-value{margin-top:12px}.gps-entry{margin-top:12px}.surface-field{margin:14px 22px!important}.surface-field .input-unit{margin-top:10px}.advanced-settings{margin:12px 22px;padding-top:14px}.panel-footer{padding:12px 22px 16px}}
+/* Guided pages: information first, geographical choice second. */
+body[data-view=projet] .map-workspace{display:none!important}
+body[data-view=projet] .workspace{display:block;overflow:auto;background:#f5f7fa}
+body[data-view=projet] .project-panel{display:block!important;position:relative;transform:none;width:100%;min-width:0;height:auto;overflow:visible;border:0;background:transparent;max-width:860px;margin:0 auto;padding:30px 24px 40px}
+body[data-view=projet] .panel-heading{padding:0 0 12px}
+body[data-view=projet] .panel-heading h1{font-size:30px}
+body[data-view=projet] .project-intro{padding:0 0 24px;max-width:650px}
+.setup-groups{display:grid;gap:12px}
+.setup-group{display:block;margin:0!important;border:1px solid #d8e2ed;border-radius:7px;background:#fff;overflow:visible}
+.setup-group>summary{padding:19px 22px;font-size:16px;font-weight:600;color:#203e5d;cursor:pointer}
+.setup-group[open]>summary{border-bottom:1px solid #e3e9f0}
+.setup-group-body{padding:20px 22px}
+.setup-group-body>.field{margin:0 0 18px!important}
+.setup-group .form-section{padding:0;border:0}
+.setup-group .form-section .section-title{display:none}
+.setup-group .field input,.setup-group .field select{font-size:14px}
+.setup-group .power-preview{margin-bottom:0;padding:13px 16px;background:#f3f7fc}
+.setup-group .power-preview strong{color:var(--green)}
+.setup-group .settings-content{padding:20px 22px}
+.setup-group .field-help{font-size:12px}
+#solar-cache-status{display:none}
+.setup-group .coordinate-fields{margin-top:18px}
+.setup-group .voltage-options{max-width:550px}
+body[data-view=projet] .panel-footer{padding:22px 0 0;position:static;background:none}
+#continue-to-map{width:100%;max-width:360px;min-height:48px;font-size:15px}
+body[data-view=projet] .panel-footer>p{margin:12px 0 0;text-align:left}
+body[data-view=projet] #reset-project{margin:0 0 18px}
+.workspace-nav button.active{background:#edf3fb;color:#184c94;border-radius:4px;font-weight:600}
+.workspace-nav button:disabled{opacity:.45;cursor:default}
+.map-setup{position:absolute;left:24px;top:90px;width:310px;background:white;border:1px solid #d6e2ee;border-radius:8px;padding:22px;z-index:600;box-shadow:var(--map-shadow);max-height:calc(100% - 115px);overflow:auto}
+.map-setup h1{font-size:23px;line-height:1.25;color:#173653;margin:8px 0 12px}
+.map-setup>p{font-size:13px;line-height:1.6;color:#516b83}
+.map-setup .map-project-summary{padding:12px;background:#f0f5fb;border-radius:4px;margin:14px 0}
+.map-setup #locate-project{margin:4px 0 12px}
+.map-setup .gps-entry{margin:6px 0 18px}
+.map-setup .field{font-size:12px}
+.map-setup .coordinate-fields{gap:10px}
+.map-setup .field input{font-size:13px}
+.point-status{padding:10px 0;font-size:12px!important}
+.point-status.confirmed{color:#176849}
+.map-setup .primary{width:100%;background:var(--green);justify-content:space-between;border-radius:4px;font-size:14px;padding:13px 16px;min-height:46px;margin:8px 0 14px}
+.map-setup>.text-button{display:block;font-size:12px}
+body[data-picking=true][data-view=carte] .results-panel,body[data-picking=true][data-view=carte] .asset-inspector,body[data-picking=true][data-view=carte] .map-toolbar,body[data-picking=true][data-view=carte] .map-legend{display:none!important}
+body[data-view=carte] .map-intro{display:none!important}
+label{position:relative}
+.field-info{display:inline-grid;place-items:center;width:22px;height:22px;min-width:22px;padding:0;margin-left:7px;margin-bottom:5px;border:1px solid #b8cce2;border-radius:50%;background:#eef4fb;color:var(--green);font:bold 12px Georgia,serif;cursor:pointer;vertical-align:middle}
+.field-info:hover,.field-info[aria-expanded=true]{background:var(--green);color:white}
+.field-tip{display:block;flex-basis:100%;padding:11px 13px;margin:8px 0;border-left:3px solid var(--green);background:#edf4fd;color:#25445f;font-size:12px;font-weight:400;line-height:1.6;white-space:normal}
+.check-line:has(.field-tip:not([hidden])),.voltage-choice:has(.field-tip:not([hidden])){flex-wrap:wrap}
+.voltage-choice .field-info{width:18px;height:18px;min-width:18px;font-size:10px;margin:0 0 0 3px}
+.voltage-options{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.progress-card{width:380px;max-width:calc(100% - 32px);left:24px;bottom:28px;padding:20px;border-radius:8px}
+.analysis-steps{display:grid;gap:13px;margin:18px 0}
+.analysis-steps>div{display:grid;gap:6px}
+.analysis-steps span{font-size:12px;color:#405b74}
+.analysis-steps progress{width:100%;height:7px;border:0;border-radius:8px;overflow:hidden;accent-color:var(--green);background:#e6edf5}
+.analysis-steps progress::-webkit-progress-bar{background:#e6edf5;border-radius:8px}
+.analysis-steps progress::-webkit-progress-value{background:var(--green);border-radius:8px;transition:width .3s}
+.analysis-steps progress:not([value]){background:linear-gradient(90deg,#e6edf5,#8db0db,#e6edf5);background-size:200% 100%;animation:loading-data 1.4s ease infinite}
+.progress-count{font-size:11px;color:#647b91;margin-top:8px}
+@keyframes loading-data{to{background-position:-200% 0}}
+@media(max-width:850px){.workspace-nav button{font-size:11px;padding:8px}.map-setup{width:280px;left:15px;top:75px;padding:18px}}
+@media(max-width:560px){body[data-view=projet] .project-panel{padding:23px 16px 32px}body[data-view=projet] .panel-heading h1{font-size:25px}.setup-group>summary{padding:16px;font-size:14px}.setup-group-body,.setup-group .settings-content{padding:16px}.setup-group .coordinate-fields{gap:10px}.field-info{width:20px;height:20px;min-width:20px}.voltage-options{grid-template-columns:repeat(2,minmax(0,1fr))}.workspace-nav button{font-size:10px;padding:7px 4px}.workspace-nav [data-view=bilan]{display:none}.map-setup{top:auto;bottom:12px;left:12px;right:12px;width:auto;max-height:48%;padding:16px}.map-setup h1{font-size:20px;margin:6px 0 8px}.map-setup .map-project-summary{padding:8px;margin:8px 0}.map-setup .gps-entry{margin:4px 0 8px}.map-setup .primary{margin:5px 0 9px}.map-setup .point-status{padding:4px 0}.progress-card{left:12px;bottom:16px;width:calc(100% - 24px)}.header-actions{gap:2px}.header-actions #export-button{display:none}}
+@media(prefers-reduced-motion:reduce){.analysis-steps progress{animation:none!important}}
+.field-label-row{display:flex;align-items:center;gap:7px;line-height:1.5}.field-label-row .field-info{margin:0}.analysis-steps [data-state=running]>span{font-weight:600;color:var(--green)}.analysis-steps [data-state=running]>span:after{content:' · en cours';font-size:11px;font-weight:400}.analysis-steps [data-state=running] progress::-webkit-progress-bar{background:linear-gradient(90deg,#e6edf5,#94b6df,#e6edf5);background-size:200% 100%;animation:loading-data 1.4s linear infinite}
+.legal-advanced{margin-top:18px;border-top:1px solid var(--border);padding-top:15px}.legal-advanced>summary{font-size:12px;color:var(--green);cursor:pointer}.legal-advanced[open]>summary{margin-bottom:15px}#legal-import-fields{margin-top:15px}
+/* Third page: local economic simulation, with graphs and editable assumptions. */
+body[data-view=economie] .project-panel,body[data-view=economie] .map-workspace{display:none!important}
+.economics-page{width:100%;height:100%;overflow:auto;background:#f5f7fa;padding:30px max(24px,calc((100% - 1320px)/2)) 50px}
+.economics-heading{display:flex;justify-content:space-between;align-items:center;gap:24px;margin-bottom:25px}
+.economics-heading h1{font-size:29px;color:#173653;letter-spacing:-.6px;margin-top:9px}
+.economics-heading .project-intro{padding:10px 0 0;font-size:14px}
+.economics-heading>.button{flex-shrink:0}
+.economics-layout{display:grid;grid-template-columns:290px minmax(0,1fr);gap:22px;align-items:start}
+.economics-assumptions{background:white;border:1px solid #dce5ef;border-radius:8px;padding:22px;position:sticky;top:0;max-height:calc(100dvh - 125px);overflow:auto}
+.economics-assumptions h2{font-size:18px;color:#203e5c;margin-bottom:10px}
+.economics-assumptions>.field-help{margin-bottom:18px}
+.economics-form .field{margin-bottom:16px;display:flex;flex-direction:column;gap:7px}
+.economics-form .field-label-row{font-size:12px;line-height:1.5}
+.economics-form input,.economics-form select{width:100%;font-size:14px;min-height:41px;border:1px solid #b8c9da;border-radius:4px;background:white;padding:9px 11px}
+.economics-form .field-info{margin-bottom:0;width:19px;height:19px;min-width:19px}
+.economics-form .field-tip{margin:0}
+.economics-form .primary{width:100%;margin:18px 0 10px;justify-content:center;font-size:13px;border-radius:4px;background:var(--green)}
+.economics-assumptions>a{display:block;font-size:12px;margin-top:16px;text-align:center;text-decoration:none}
+.economics-assumptions>a[aria-disabled=true]{opacity:.5;cursor:not-allowed}
+.economic-advanced{padding-top:14px;border-top:1px solid #dce5ef}
+.economic-advanced>summary{font-size:12px;color:var(--green);cursor:pointer}
+.economic-advanced[open]>summary{margin-bottom:18px}
+.economics-results{min-width:0}
+.economics-results.is-stale{opacity:.6}
+.economic-scope{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:12px;color:#526c83;padding:0 0 16px}
+.economic-kpis{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:18px}
+.economic-kpi{background:white;border:1px solid #dce5ef;border-radius:8px;padding:20px}
+.economic-kpi h2{font-size:12px;font-weight:600;color:#61778c;margin-bottom:12px}
+.economic-kpi strong{display:block;font-size:27px;letter-spacing:-.5px;color:#214a78}
+.economic-kpi p{font-size:11px;color:#6a7d8f;line-height:1.6;margin-top:10px}
+.economic-kpi.positive strong{color:#14775e}.economic-kpi.negative strong{color:#a64639}
+.economic-chart{margin:18px 0;background:white;border:1px solid #dce5ef;border-radius:8px;padding:22px 18px 14px}
+.economic-chart figcaption{font-size:15px;font-weight:600;color:#294b6a;margin:0 0 15px}
+.economic-chart svg{display:block;width:100%;height:auto;max-height:380px}
+.economic-chart .field-help{padding:9px 12px 0;font-size:11px}
+.economic-legend{display:flex;flex-wrap:wrap;gap:9px 18px;padding:0 12px;font-size:11px;color:#58728b}
+.economic-legend span:before{content:'';display:inline-block;width:18px;height:4px;margin-right:7px;background:var(--green);vertical-align:middle}
+.economic-legend .discounted:before{background:#20806a}.economic-legend .range:before{background:#dce8fa;height:10px}.economic-legend .expenses:before{background:#bd8050}
+.economic-sensitivity{background:white;border:1px solid #dce5ef;border-radius:8px;padding:22px;margin-top:18px}
+.economic-sensitivity h2{font-size:16px;color:#294b6a;margin-bottom:15px}
+.economic-sensitivity table{border-collapse:collapse;width:100%;font-size:12px}
+.economic-sensitivity th{text-align:left;font-weight:600;color:#55718a;background:#f4f7fb}
+.economic-sensitivity td,.economic-sensitivity th{padding:11px 10px;border-bottom:1px solid #e3eaf1}
+.economic-sensitivity .field-help{margin-top:12px;font-size:11px}
+.economic-method{margin-top:20px}.economic-method>summary{color:var(--green);font-size:13px;cursor:pointer}
+.economic-method p{margin:12px 0}.economics-loading{padding:22px;background:white;border-radius:8px;color:#526c83}
+@media(max-width:1050px){.economics-page{padding:24px}.economics-layout{grid-template-columns:255px minmax(0,1fr)}.economic-kpi{padding:16px}.economic-kpi strong{font-size:23px}}
+@media(max-width:850px){.economics-layout{grid-template-columns:1fr}.economics-assumptions{position:static;max-height:none}.economics-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px}.economics-form>.field:first-child,.economics-form>.economic-advanced,.economics-form>.primary,.economics-form>p{grid-column:1/-1}.economic-kpi strong{font-size:25px}}
+@media(max-width:560px){.economics-page{padding:21px 14px}.economics-heading{display:block}.economics-heading h1{font-size:24px}.economics-heading>.button{margin-top:14px;font-size:12px}.economics-heading .project-intro{font-size:13px}.economics-assumptions{padding:17px}.economics-form{gap:0 12px}.economic-kpis{gap:9px}.economic-kpi{padding:14px}.economic-kpi strong{font-size:21px}.economic-kpi h2{font-size:11px}.economic-kpi p{font-size:10px}.economic-chart{padding:17px 8px 12px}.economic-chart figcaption{font-size:13px;padding-left:6px}.economic-sensitivity{padding:16px 10px}.economic-sensitivity td,.economic-sensitivity th{padding:9px 5px;font-size:11px}.workspace-nav [data-view=economie]{display:block}.workspace-nav button{font-size:9px;padding:7px 3px}.brand{font-size:16px}.brand-mark{width:26px;height:26px;font-size:25px}}
+.economics-assumptions>summary{font-size:18px;color:#203e5c;font-weight:600;cursor:pointer;margin-bottom:16px}.economics-assumptions:not([open])>summary{margin-bottom:0}
+
+.congestion-legend{bottom:76px;top:auto}
+.congestion-legend strong{display:block;margin-bottom:6px}
+.congestion-key{display:flex;align-items:center;gap:7px;font-size:11px;line-height:1.55}
+.congestion-key i{width:10px;height:10px;border-radius:2px}
+.congestion-legend:not([hidden]) + #solar-legend{bottom:246px;top:auto}
+.layer-chips{min-width:0;overflow-x:auto;justify-content:flex-start}
+.layer-chip{flex-shrink:0}
+@media(max-width:560px){
+  .layer-chip{font-size:10px;min-width:auto}
+  .congestion-legend{top:68px;bottom:auto;width:auto}
+  .congestion-legend:not([hidden]) + #solar-legend{top:220px;bottom:auto}
+}
+
+
+/* Shared controls and surfaces across the workspace. */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  background: var(--canvas);
+  color: var(--ink);
+  accent-color: var(--green);
+}
+
+.app-header {
+  background: var(--glass);
+  backdrop-filter: blur(20px) saturate(160%);
+  box-shadow: 0 1px 2px #17283f0c;
+}
+
+.brand { letter-spacing: -.045em; }
+.brand-light { color: var(--muted); }
+.brand-mark {
+  border-radius: 28%;
+  background: linear-gradient(155deg, #398bff, #0d50b4);
+  box-shadow: inset 0 1px 0 #ffffff59, 0 2px 6px #075bc945;
+}
+
+.workspace-nav {
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid #dedfe7;
+  border-radius: 11px;
+  background: #eeeff4;
+}
+
+.workspace-nav button {
+  border-radius: 7px;
+  background: transparent;
+  color: #414854;
+  font-weight: 550;
+}
+
+.workspace-nav button:not(:disabled):hover {
+  background: #ffffff9c;
+  text-decoration: none;
+}
+
+.workspace-nav button.active {
+  border-radius: 7px;
+  background: white;
+  color: var(--green);
+  box-shadow: 0 1px 4px #18243924;
+}
+
+body[data-view=projet] .workspace,
+body[data-view=bilan] .map-workspace,
+.economics-page {
+  background: radial-gradient(ellipse at 50% 0, #fbfcff, transparent 60%), var(--canvas);
+}
+
+body[data-view=projet] .project-panel { max-width: 800px; }
+.panel-heading h1, .map-setup h1, .results-heading h2, .economics-heading h1 {
+  color: var(--ink);
+  letter-spacing: -.035em;
+}
+
+.setup-group, .map-setup, .results-panel, .asset-inspector, .progress-card,
+.economics-assumptions, .economic-kpi, .economic-chart, .economic-sensitivity {
+  background: var(--surface);
+  border-color: var(--border);
+  border-radius: var(--panel-radius);
+}
+
+.setup-group, .economic-kpi, .economic-chart, .economic-sensitivity {
+  box-shadow: 0 2px 6px #17283f08;
+}
+
+.map-setup, .asset-inspector, .results-panel, .map-legend, .layer-chips {
+  background: var(--glass);
+  backdrop-filter: blur(16px) saturate(145%);
+}
+
+.setup-group > summary { color: var(--ink); }
+.setup-group:not([open]) > summary:hover {
+  background: #f7f8fc;
+  border-radius: var(--panel-radius);
+}
+
+.field input, .field select, .label-with-value input {
+  background: #fafbfe;
+  border-color: #c8cdd8;
+  border-radius: var(--control-radius);
+  color: var(--ink);
+}
+
+.button, .map-setup .primary, .panel-footer .primary,
+.map-project-summary, .scenario-card, .cable-details, .layer-chips, .layer-chip {
+  border-radius: var(--control-radius);
+}
+
+.button.primary {
+  color: white;
+  background: linear-gradient(180deg, #1975e6, var(--green));
+  box-shadow: inset 0 1px 0 #ffffff30, 0 2px 5px #075bc92b;
+}
+
+.button.primary:not(:disabled):hover { background: #0754b9; }
+.layer-chip.active, .scenario-card.selected { background: var(--accent-soft); }
+:where(button, input, select, summary, a):focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 3px;
+}
+
+@media (max-width: 560px) {
+  .workspace-nav { min-width: 0; }
+  .workspace-nav button { padding-inline: 5px; }
+  .map-setup, .results-panel { border-radius: 13px; }
+}
+

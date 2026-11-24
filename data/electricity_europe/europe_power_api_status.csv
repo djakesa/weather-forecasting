@@ -1,0 +1,11 @@
+﻿layer,layer_title,country_count,sample_count,api_count,features_downloaded,truncated,status,error
+structures,Postes et transformateurs,12,36,28,28,False,OK,
+lines,"Lignes, câbles et lignes secondaires",12,36,436,436,False,OK,
+structures,Postes et transformateurs,12,36,47,47,False,OK,
+lines,"Lignes, câbles et lignes secondaires",12,36,411,411,False,OK,
+structures,Postes et transformateurs,12,36,88,88,False,OK,
+lines,"Lignes, câbles et lignes secondaires",12,36,458,458,False,OK,
+structures,Postes et transformateurs,12,36,14,14,False,OK,
+lines,"Lignes, câbles et lignes secondaires",12,36,418,418,False,OK,
+structures,Postes et transformateurs,3,9,10,10,False,OK,
+lines,"Lignes, câbles et lignes secondaires",3,9,231,231,False,OK,

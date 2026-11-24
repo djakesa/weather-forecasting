@@ -1,0 +1,38 @@
+osm_type,osm_id,power,name,voltage,operator,distance_km
+way,1039015698,plant,Central Hidroeléctrica Comunidad de Regantes Sol - Poniente I,,,4.8345850448669045
+way,1037833443,line,Línea de alta tensión Cumbres - Ejido,66000,,5.647860691443932
+way,1039334739,line,Línea de alta tensión Berja - Ejido,66000,,5.708272719995499
+way,1037833440,line,Línea de alta tensión Berja - Ejido y Cumbres - Ejido,66000,,5.778995356551322
+way,1037833438,line,,66000,,5.876457835647629
+way,1037833439,line,,66000,,5.876457835647629
+way,1037833441,substation,Subestación de Ejido,66000;20000,,5.884632258075765
+node,9559243881,transformer,,,,5.910709099105517
+node,9559243879,transformer,,,,5.911833843681459
+way,1262454441,substation,,,,6.3164266126562145
+way,489276128,plant,,,,7.331505919180433
+way,866268958,substation,,,,7.546487968460555
+way,771906031,substation,,,,7.995429806767044
+way,1039015701,line,Línea de alta tensión Aguadulce - Berja - Cosario y Berja - Tomillar,66000,,8.620711418942586
+way,768760551,substation,,,,8.663937077860297
+way,762634044,substation,,,,8.816185413682868
+way,1037833419,substation,Subestación Tomillar,66000;20000,,9.105347981710567
+way,1039015699,cable,Línea de alta tensión Berja - Tomillar y Cosario - Macresur - Tomillar,66000,,9.146062519271592
+way,1039015700,line,Línea de alta tensión Berja - Tomillar y Cosario - Macresur - Tomillar,66000,,9.407155986568034
+way,123593364,substation,Subestación de Berja,66000;20000,,9.631260148662031
+way,1039015703,line,,66000,,9.644096613817524
+way,1039015702,line,,66000,,9.656299107359601
+way,766063120,substation,Subestación de Berja,220000;66000,,9.6617179900926
+node,9570879879,transformer,,,,9.681292452599285
+node,9570879880,transformer,,,,9.683798246604516
+way,1039334738,line,Línea de alta tensión Alcolea - Berja,66000,,9.684594192287078
+way,1039334735,line,Línea de alta tensión Berja - Berja220,66000,,9.687863441518196
+way,1039334737,line,Línea de alta tensión Berja - Berja220,66000,,9.691274253248922
+way,1039334736,line,Línea de alta tensión Berja - Berja220,66000,,9.698014126347646
+way,766063119,substation,Subestación de Berja,220000,,9.725473857137565
+way,1281112401,minor_line,,20000,,9.74583765764026
+way,783620465,line,,220000,,9.789791022682886
+way,256618581,line,Línea de alta tensión Benahadux - Berja y Berja - Órgiva,220000,,9.84740124309267
+way,1037833420,line,Línea de alta tensión Aguadulce - Berja - Cosario y Cosario - Macresur - Tomillar,66000,,10.010278371304583
+way,1574223193,minor_line,,,,10.506994765890413
+way,1572120675,minor_line,,,,12.149208356088222
+way,1573779842,minor_line,,,,12.959155868273834
