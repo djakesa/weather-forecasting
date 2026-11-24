@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.py[cod]
+.env
+.idea/
+data/france_cache/
+data/projects/
+data/ui-checks/
+/FRANCE.md
+/data/site_auto/cadastre_wfs_cache/
+/data/latest-tests.log

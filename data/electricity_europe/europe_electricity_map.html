@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Réseau électrique · découverte INSPIRE</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+body {
+    margin: 0;
+    background: #f3f6fa;
+    color: #172033;
+    font: 14px Arial, sans-serif;
+}
+main {
+    max-width: 1500px;
+    margin: auto;
+    padding: 18px;
+}
+h1 {
+    margin: 0 0 6px;
+}
+.note {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    padding: 12px;
+    border-radius: 9px;
+    line-height: 1.5;
+    margin: 12px 0;
+}
+#map {
+    height: 72vh;
+    min-height: 520px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    margin-top: 14px;
+}
+th, td {
+    padding: 8px;
+    border-bottom: 1px solid #e2e8f0;
+    text-align: left;
+    vertical-align: top;
+}
+th {
+    background: #eaf0f6;
+}
+a {
+    color: #075985;
+}
+.small {
+    color: #64748b;
+    font-size: 12px;
+}
+</style>
+</head>
+<body>
+<main>
+<h1>Découverte des services électriques INSPIRE / Europe</h1>
+<p>
+Point météo : 36.74890, -2.89392 · 1754 kWh/kWp/an ·
+carré : 100 × 100 km ·
+40 jeu(x) de données trouvé(s).
+</p>
+<div class="note">
+<b>Lecture de la carte :</b>
+le carré et le point sont les paramètres de recherche.
+Les contours bleus sont des emprises déclarées dans les métadonnées,
+pas les équipements eux-mêmes.
+2 couche(s) WMS électrique(s) détectée(s).
+Les couches WMS sont proposées dans le sélecteur de couches si le catalogue
+fournit un service cartographique. Le portail européen catalogue les services
+nationaux; il ne garantit ni couverture électrique complète, ni données
+de capacité.
+</div>
+<div id="map"></div>
+<h2>Services trouvés</h2>
+<p class="small">
+Un service WFS ou un téléchargement indique un accès possible;
+il n'est pas dessiné automatiquement dans cette première carte.
+</p>
+<table>
+<thead>
+<tr>
+<th>Jeu de données</th>
+<th>Pays/catalogue</th>
+<th>Type / format</th>
+<th>Service</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Healthcare facilities and electricity access in Africa</td><td>http://publications.europa.eu/resource/authority/continent/EUROPE</td><td>autre · http://publications.europa.eu/resource/authority/file-type/SHP</td><td><a href="https://figshare.com/articles/dataset/Health_facilities_Africa/14891940" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>Zonal electrical quality</td><td>Spain</td><td>autre · </td><td><a href="https://energia.serviciosmin.gob.es/Gecos/DatosPublicos/DescargaIndices" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>Zonal electrical quality</td><td>Spain</td><td>autre · </td><td><a href="https://energia.serviciosmin.gob.es/Gecos/DatosPublicos/CalidadServicio" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>Electric charging points in Spain</td><td>http://publications.europa.eu/resource/authority/country/ESP</td><td>autre · http://publications.europa.eu/resource/authority/file-type/XML</td><td><a href="https://www.idee.es/csw-codsi-idee/srv/api/records/spaminPuntosRecarga/formatters/xml" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>Electric Vehicle Charging Points</td><td>http://publications.europa.eu/resource/authority/country/ESP</td><td>autre · http://publications.europa.eu/resource/authority/file-type/CSV</td><td><a href="https://energia.serviciosmin.gob.es/Ripree/ExportarInstalaciones/Export" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>Electric Vehicle Charging Points</td><td>http://publications.europa.eu/resource/authority/country/ESP</td><td>autre · http://publications.europa.eu/resource/authority/file-type/XML</td><td><a href="https://catalogo.datosabiertos.miteco.gob.es/catalogo/es/dataset/6ee8d46f-93bd-478f-8e29-3ba4f6d8405c/resource/8b73c0ea-9244-4a2b-a152-ba41fbd16b0b" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>Administrative Register of Electrical Energy Distributors</td><td>Spain</td><td>autre · </td><td><a href="https://energia.serviciosmin.gob.es/Gecos/DatosPublicos/ConsultaRegistro" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>WMS Service of Productive Spaces of Andalusia (ESPAND)</td><td>http://publications.europa.eu/resource/authority/country/ESP</td><td>WMS · http://publications.europa.eu/resource/authority/file-type/WMS_SRVC</td><td><a href="https://www.juntadeandalucia.es/institutodeestadisticaycartografia/geoserver-ieca/espacios_productivos/wms?REQUEST=GetCapabilities&amp;SERVICE=WMS&amp;VERSION=1.3.0" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>WMS visualization service of the IGME geophysical database (SIGEOF)</td><td>http://publications.europa.eu/resource/authority/continent/EUROPE</td><td>WMS · http://publications.europa.eu/resource/authority/file-type/WMS_SRVC</td><td><a href="https://mapas.igme.es/gis/services/BasesDatos/IGME_SIGEOF/MapServer/WmsServer" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>WMS visualization service of the IGME geophysical database (SIGEOF)</td><td>http://publications.europa.eu/resource/authority/country/ESP</td><td>WMS · http://publications.europa.eu/resource/authority/file-type/WMS_SRVC</td><td><a href="https://mapas.igme.es/gis/services/BasesDatos/IGME_SIGEOF/MapServer/WmsServer" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>Geophysical Information System of the Geological and Mining Institute of Spain (IGME-CSIC)</td><td>Spain</td><td>WMS · WMS_SRVC</td><td><a href="http://mapas.igme.es/gis/services/BasesDatos/IGME_SIGEOF/MapServer/WmsServer?REQUEST=GetCapabilities&amp;SERVICE=WMS" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>Geophysical Information System of the Geological and Mining Institute of Spain (IGME-CSIC)</td><td>Europe</td><td>WMS · WMS_SRVC</td><td><a href="http://mapas.igme.es/gis/services/BasesDatos/IGME_SIGEOF/MapServer/WmsServer?REQUEST=GetCapabilities&amp;SERVICE=WMS" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>AIDRES - Advancing industrial decarbonization by assessing the future use of renewable energies in industrial processes</td><td>http://publications.europa.eu/resource/authority/continent/EUROPE</td><td>autre · http://publications.europa.eu/resource/authority/file-type/XLSX</td><td><a href="https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/EIGL-Data/AIDRES/" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>AIDRES - Advancing industrial decarbonization by assessing the future use of renewable energies in industrial processes</td><td>http://publications.europa.eu/resource/authority/continent/EUROPE</td><td>autre · http://publications.europa.eu/resource/authority/file-type/MAP_SRVC</td><td><a href="https://joint-research-centre.ec.europa.eu/scientific-tools-databases/energy-and-industry-geography-lab_en" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>Self-consumption register</td><td>http://publications.europa.eu/resource/authority/country/ESP</td><td>autre · http://publications.europa.eu/resource/authority/file-type/HTML</td><td><a href="https://energia.serviciosmin.gob.es/Radne/RegistroPublico/Consulta" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>TMS of the Base Map in gray tones of Spain</td><td>http://publications.europa.eu/resource/authority/country/ESP</td><td>WMS · http://publications.europa.eu/resource/authority/file-type/WMS_SRVC</td><td><a href="https://tms-ign-base.idee.es/1.0.0/IGNBaseGris/%7Bz%7D/%7Bx%7D/%7B-y%7D.jpeg" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>Annual Energy Balances</td><td>Spain</td><td>autre · PDF</td><td><a href="https://catalogo.datosabiertos.miteco.gob.es/catalogo/dataset/12bff65d-0fea-43dd-9f99-bb3ec7367795/resource/b35e1738-499e-48fc-9b38-8106b6e886b7" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>Annual Energy Balances</td><td>Spain</td><td>autre · PDF</td><td><a href="https://catalogo.datosabiertos.miteco.gob.es/catalogo/dataset/12bff65d-0fea-43dd-9f99-bb3ec7367795/resource/0960c8a0-a1f8-4c03-aced-1a2a285fed1e" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>Annual Energy Balances</td><td>Spain</td><td>autre · ODS</td><td><a href="https://catalogo.datosabiertos.miteco.gob.es/catalogo/dataset/12bff65d-0fea-43dd-9f99-bb3ec7367795/resource/c8293ac2-1e6b-4af6-87b8-7d30da7e3e31" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>Annual Energy Balances</td><td>Spain</td><td>autre · ODS</td><td><a href="https://catalogo.datosabiertos.miteco.gob.es/catalogo/dataset/12bff65d-0fea-43dd-9f99-bb3ec7367795/resource/d085ce72-a093-49f7-97bb-b53b782c1a25" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>The REFLECT European Geothermal Fluid Atlas dataset</td><td>Europe</td><td>autre · XLSX</td><td><a href="https://doi.org/10.5880/fidgeo.2025.088" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>The REFLECT European Geothermal Fluid Atlas dataset</td><td>Europe</td><td>autre · XLSX</td><td><a href="https://www.reflect-h2020.eu/efa/" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>Renewable energy and waste statistics</td><td>Spain</td><td>autre · ODS</td><td><a href="https://catalogo.datosabiertos.miteco.gob.es/catalogo/dataset/1fefbbf9-e634-428f-aed3-7a11da4ffa18/resource/5f8fd529-6d0c-4d8a-9321-df7da32de423" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>Renewable energy and waste statistics</td><td>Spain</td><td>autre · ODS</td><td><a href="https://catalogo.datosabiertos.miteco.gob.es/catalogo/dataset/1fefbbf9-e634-428f-aed3-7a11da4ffa18/resource/8bc6db22-6c65-4c1a-be94-6c2beb663cad" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>Renewable energy and waste statistics</td><td>Spain</td><td>autre · PDF</td><td><a href="https://catalogo.datosabiertos.miteco.gob.es/catalogo/dataset/1fefbbf9-e634-428f-aed3-7a11da4ffa18/resource/6a065d03-6bbd-4243-8f82-4ff20211eaae" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>Renewable energy and waste statistics</td><td>Spain</td><td>autre · PDF</td><td><a href="https://catalogo.datosabiertos.miteco.gob.es/catalogo/dataset/1fefbbf9-e634-428f-aed3-7a11da4ffa18/resource/fee06c35-5215-4828-ad53-684530da2cb4" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>Large Combustion Plants (LCP/GIC)</td><td>Spain</td><td>WFS / OGC API Features · </td><td><a href="https://wmts.mapama.gob.es/sig-api/ogc/features/v1" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>Large Combustion Plants (LCP/GIC)</td><td>Spain</td><td>autre · </td><td><a href="https://www.mapama.gob.es/ide/inspire/atom/downloadservice.xml" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>Large Combustion Plants (LCP/GIC)</td><td>Spain</td><td>autre · </td><td><a href="https://www.mapama.gob.es/app/descargas/descargafichero.aspx?f=grandesplantascombustion-pf.zip" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>Large Combustion Plants (LCP/GIC)</td><td>Spain</td><td>autre · </td><td><a href="https://www.mapama.gob.es/app/descargas/descargafichero.aspx?f=gml-grandesplantascombustion-pf.zip" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>Large Combustion Plants (LCP/GIC)</td><td>Spain</td><td>WMS · WMS_SRVC</td><td><a href="https://wms.mapama.gob.es/sig/EvaluacionAmbiental/Emisiones/GrandesPC?request=getcapabilities&amp;service=wms" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>Large Combustion Plants (LCP/GIC)</td><td>http://publications.europa.eu/resource/authority/country/ESP</td><td>autre · http://publications.europa.eu/resource/authority/file-type/XML</td><td><a href="https://www.idee.es/csw-codsi-idee/srv/api/records/2930c02a-eb5f-41f3-8245-d1768ec543bd/formatters/xml" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>Large Combustion Plants (LCP/GIC)</td><td>http://publications.europa.eu/resource/authority/country/ESP</td><td>WMS · http://publications.europa.eu/resource/authority/file-type/HTML</td><td><a href="https://wms.mapama.gob.es/sig/EvaluacionAmbiental/Emisiones/GrandesPC?request=getcapabilities&amp;service=wms" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>Climatic suitability for the transmission of chikungunya in Europe (1951-2021), Apr 2023</td><td>Europe</td><td>autre · GDB</td><td><a href="https://www.sciencedirect.com/science/article/pii/S2468266722001979?via%3Dihub" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>Climatic suitability for the transmission of chikungunya in Europe (1951-2021), Apr 2023</td><td>Europe</td><td>autre · GDB</td><td><a href="https://sdi.eea.europa.eu/data/687b921c-e9d6-4867-a3db-58ec1b79b563" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>Climatic suitability for the transmission of chikungunya in Europe (1951-2021), Apr 2023</td><td>Europe</td><td>WMS · WMS_SRVC</td><td><a href="https://climate.discomap.eea.europa.eu/arcgis/services/EUROGEO/Climatic_suitability_transmission_chikungunya/MapServer/WMSServer?request=GetCapabilities&amp;service=WMS" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>Climatic suitability for the transmission of zika in Europe (1951-2021), Apr 2023</td><td>Europe</td><td>WMS · WMS_SRVC</td><td><a href="https://climate.discomap.eea.europa.eu/arcgis/services/EUROGEO/Climatic_suitability_transmission_zika/MapServer/WMSServer?request=GetCapabilities&amp;service=WMS" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>Climatic suitability for the transmission of zika in Europe (1951-2021), Apr 2023</td><td>Europe</td><td>autre · GDB</td><td><a href="https://sdi.eea.europa.eu/webdav/datastore/public/eea_v_3035_100_k_transmission-zika_p_1951-2021_v01_r00/" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>Climatic suitability for the transmission of zika in Europe (1951-2021), Apr 2023</td><td>Europe</td><td>autre · GDB</td><td><a href="https://www.sciencedirect.com/science/article/pii/S2468266722001979?via%3Dihub" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>Climatic suitability for the transmission of zika in Europe (1951-2021), Apr 2023</td><td>Europe</td><td>autre · GDB</td><td><a href="https://sdi.eea.europa.eu/data/f8f716cc-77ef-4149-9d8d-66102536b0fe" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>Climatic suitability for the transmission of malaria in Europe (1950-2020), Apr 2023</td><td>Europe</td><td>autre · GDB</td><td><a href="https://sdi.eea.europa.eu/webdav/datastore/public/eea_v_3035_100_k_transmission-of-malaria_p_1950-2020_v01_r00/" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>Climatic suitability for the transmission of malaria in Europe (1950-2020), Apr 2023</td><td>Europe</td><td>autre · GDB</td><td><a href="https://sdi.eea.europa.eu/data/c425d19f-2a7b-431c-ac1f-a2d1d8337312" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>Climatic suitability for the transmission of malaria in Europe (1950-2020), Apr 2023</td><td>Europe</td><td>WMS · WMS_SRVC</td><td><a href="https://climate.discomap.eea.europa.eu/arcgis/services/EUROGEO/Climatic_suitability_transmission_malaria/MapServer/WMSServer?request=GetCapabilities&amp;service=WMS" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>Climatic suitability for the transmission of dengue by Aedes albopictus in Europe (1951-2021), Apr 2023</td><td>Europe</td><td>autre · GDB</td><td><a href="https://sdi.eea.europa.eu/webdav/datastore/public/eea_v_3035_100_k_transmission-dengue_p_1951-2021_v01_r00/" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>Climatic suitability for the transmission of dengue by Aedes albopictus in Europe (1951-2021), Apr 2023</td><td>Europe</td><td>autre · GDB</td><td><a href="https://sdi.eea.europa.eu/data/8aaef851-672f-41d5-8c2c-b242e4193a8d" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>Climatic suitability for the transmission of dengue by Aedes albopictus in Europe (1951-2021), Apr 2023</td><td>Europe</td><td>autre · GDB</td><td><a href="https://portal.discomap.eea.europa.eu/arcgis/home/webmap/viewer.html?webmap=3dbecbf4784a4ef7817c45e53f1e2934" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>Climatic suitability for the transmission of dengue by Aedes albopictus in Europe (1951-2021), Apr 2023</td><td>Europe</td><td>WMS · WMS_SRVC</td><td><a href="https://climate.discomap.eea.europa.eu/arcgis/services/EUROGEO/Climatic_suitability_transmission_dengue/MapServer/WMSServer?request=GetCapabilities&amp;service=WMS" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>Climatic suitability for the transmission of West Nile Virus (WNV) in Europe (1950-2020), Apr 2023</td><td>Europe</td><td>autre · GDB</td><td><a href="https://sdi.eea.europa.eu/webdav/datastore/public/eea_v_3035_100_k_transmission-wnv_p_1950-2020_v01_r00/" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>Climatic suitability for the transmission of West Nile Virus (WNV) in Europe (1950-2020), Apr 2023</td><td>Europe</td><td>autre · GDB</td><td><a href="https://sdi.eea.europa.eu/data/096ed3a4-7776-4292-ba26-a3e5d606ea7c" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>Climatic suitability for the transmission of West Nile Virus (WNV) in Europe (1950-2020), Apr 2023</td><td>Europe</td><td>autre · GDB</td><td><a href="https://www.thelancet.com/journals/lanpub/article/PIIS2468-2667(22)00197-9/fulltext" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>Climatic suitability for the transmission of West Nile Virus (WNV) in Europe (1950-2020), Apr 2023</td><td>Europe</td><td>WMS · WMS_SRVC</td><td><a href="https://climate.discomap.eea.europa.eu/arcgis/services/EUROGEO/Climatic_suitability_transmission_WNV/MapServer/WMSServer?request=GetCapabilities&amp;service=WMS" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>Map visualisation service (WMS): Ground-mounted photovoltaic power plant</td><td>http://publications.europa.eu/resource/authority/country/FRA</td><td>WMS · http://publications.europa.eu/resource/authority/file-type/WMS_SRVC</td><td><a href="https://carto2.geo-ide.din.developpement-durable.gouv.fr/rest-api/ows/c20c277b-415b-40c0-ac10-f8ea833c1d13" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>Wind hourly generation time series at country, NUTS 1, NUTS 2 level and bidding zones</td><td>http://publications.europa.eu/resource/authority/continent/EUROPE</td><td>autre · http://publications.europa.eu/resource/authority/file-type/XLS</td><td><a href="https://zenodo.org/record/8340501" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>Hydroelectric exploitations: Restitution</td><td>Spain</td><td>WMS · WMS_SRVC</td><td><a href="https://wms.mapama.gob.es/sig/Agua/Aprovechamientos?request=getcapabilities&amp;amp;service=wms" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>INSPIRE-WFS SL Transport Networks ATKIS Basic DLM - Rail electrification - OGC WFS Interface</td><td>http://publications.europa.eu/resource/authority/country/DEU</td><td>WFS / OGC API Features · INSPIRE DOWNLOAD SERVICE</td><td><a href="https://geoportal.saarland.de/mapbender/php/wfs.php?INSPIRE=1&amp;FEATURETYPE_ID=1993&amp;REQUEST=GetCapabilities&amp;SERVICE=WFS&amp;VERSION=2.0.0" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>INSPIRE-WFS SL Transport Networks ATKIS Basic DLM - Rail electrification - OGC API Features</td><td>http://publications.europa.eu/resource/authority/country/DEU</td><td>autre · INSPIRE DOWNLOAD SERVICE</td><td><a href="https://geoportal.saarland.de/spatial-objects/413/collections/tn-ra:RailwayElectrification" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>Projected freshwater needs of the energy sector in the European Union and the UK</td><td>http://publications.europa.eu/resource/authority/continent/EUROPE</td><td>autre · http://publications.europa.eu/resource/authority/file-type/XLSX</td><td><a href="https://zenodo.org/record/3899962#.XutW8mgzaUl" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>OUTDATED!- Projected fresh water use from the European energy sector on NUTS2 level by 2050 following EU Energy Reference Scenario 2016</td><td>http://publications.europa.eu/resource/authority/continent/EUROPE</td><td>autre · http://publications.europa.eu/resource/authority/file-type/XLSX</td><td><a href="https://zenodo.org/record/3243384#.XP_OfdFlLoo" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>DWD GeoServer WMS - icon-eu-eps _ecwarn _reg0125 _fd _sl _pVMAX10MgtX</td><td>http://publications.europa.eu/resource/authority/country/DEU</td><td>WMS · http://publications.europa.eu/resource/authority/file-type/WMS_SRVC</td><td><a href="https://www.geoportal.hessen.de/mapbender/php/wms.php?inspire=1&amp;layer_id=60478&amp;withChilds=1&amp;REQUEST=GetCapabilities&amp;SERVICE=WMS" target="_blank" rel="noopener">ouvrir</a></td></tr><tr><td>DWD GeoServer WMS - icon-eu-eps _ecwarn _reg0125 _fd _sl _pVMAX10MgtX</td><td>http://publications.europa.eu/resource/authority/country/DEU</td><td>WMS · http://publications.europa.eu/resource/authority/file-type/WMS_SRVC</td><td><a href="https://www.geoportal.rlp.de/mapbender/php/wms.php?inspire=1&amp;layer_id=86809&amp;withChilds=1&amp;REQUEST=GetCapabilities&amp;SERVICE=WMS" target="_blank" rel="noopener">ouvrir</a></td></tr>
+</tbody>
+</table>
+</main>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+const square = {"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[-2.264929010140575, 36.37526154384353], [-2.423451763651373, 37.27093036117467], [-3.530095372312581, 37.117818531791755], [-3.3581979878815718, 36.224397681939294], [-2.264929010140575, 36.37526154384353]]]}, "properties": {"name": "Emprise 100 km"}}]};
+const point = {"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": {"type": "Point", "coordinates": [-2.8939227028734513, 36.74890123781297]}, "properties": {"name": "Meilleur point météo", "yield_kwh_kwp": 1753.667224}}]};
+const extents = {"type": "FeatureCollection", "features": []};
+const wms = [{"url": "https://www.juntadeandalucia.es/institutodeestadisticaycartografia/geoserver-ieca/espacios_productivos/wms?REQUEST=GetCapabilities&SERVICE=WMS&VERSION=1.3.0", "name": "lineas_electricas", "title": "Líneas Eléctricas", "dataset": "WMS Service of Productive Spaces of Andalusia (ESPAND)"}, {"url": "https://www.juntadeandalucia.es/institutodeestadisticaycartografia/geoserver-ieca/espacios_productivos/wms?REQUEST=GetCapabilities&SERVICE=WMS&VERSION=1.3.0", "name": "subestacion_electrica", "title": "Subestación Eléctrica", "dataset": "WMS Service of Productive Spaces of Andalusia (ESPAND)"}];
+
+const map = L.map("map").setView([36.74890123781297, -2.8939227028734513], 11);
+
+const imagery = L.tileLayer(
+    "https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+    {
+        maxZoom: 19,
+        attribution: "Sources: Esri, DigitalGlobe, GeoEye, i-cubed, USDA FSA, USGS, AEX, Getmapping, Aerogrid, IGN, IGP, swisstopo, and the GIS User Community"
+    }
+).addTo(map);
+
+const topo = L.tileLayer(
+    "https://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}",
+    {
+        maxZoom: 19,
+        attribution: "Sources: Esri, DeLorme, HERE, TomTom, Intermap, increment P Corp., GEBCO, USGS, FAO, NPS, NRCAN, GeoBase, IGN, Kadaster NL, Ordnance Survey, Esri Japan, METI, swisstopo, and the GIS User Community"
+    }
+);
+
+const squareLayer = L.geoJSON(square, {
+    style: {
+        color: "#dc2626",
+        weight: 3,
+        fillOpacity: 0.04
+    }
+}).addTo(map);
+
+const pointLayer = L.geoJSON(point, {
+    pointToLayer: (feature, latlng) => L.circleMarker(latlng, {
+        radius: 8,
+        color: "#fff",
+        weight: 2,
+        fillColor: "#dc2626",
+        fillOpacity: 1
+    }),
+    onEachFeature: (feature, layer) => layer.bindPopup(
+        "<b>Meilleur point météo</b><br>"
+        + Number(feature.properties.yield_kwh_kwp).toFixed(0)
+        + " kWh/kWp/an"
+    )
+}).addTo(map);
+
+const extentLayer = L.geoJSON(extents, {
+    style: {
+        color: "#2563eb",
+        weight: 2,
+        fillColor: "#60a5fa",
+        fillOpacity: 0.12
+    },
+    onEachFeature: (feature, layer) => layer.bindPopup(
+        "<b>"
+        + ((feature.properties || {}).title || "Emprise catalogue")
+        + "</b><br>Emprise de métadonnées, pas la géométrie des lignes"
+    )
+}).addTo(map);
+
+const overlays = {
+    "Carré de recherche": squareLayer,
+    "Point météo": pointLayer,
+    "Emprises de métadonnées": extentLayer
+};
+
+for (const service of wms) {
+    const layer = L.tileLayer.wms(service.url, {
+        layers: service.name,
+        format: "image/png",
+        transparent: true,
+        version: "1.3.0",
+        opacity: 0.8
+    });
+    overlays[service.dataset + " · " + service.title] = layer;
+}
+
+L.control.layers(
+    {
+        "Imagerie satellite Esri": imagery,
+        "Plan topographique Esri": topo
+    },
+    overlays,
+    {collapsed: true}
+).addTo(map);
+
+L.control.scale({
+    metric: true,
+    imperial: false
+}).addTo(map);
+
+map.fitBounds(squareLayer.getBounds(), {
+    padding: [18, 18]
+});
+</script>
+</body>
+</html>
