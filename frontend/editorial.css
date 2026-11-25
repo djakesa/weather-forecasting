@@ -1,0 +1,413 @@
+:root {
+  --ink: #202923;
+  --muted: #545e53;
+  --green: #294c3c;
+  --yellow: #e9c46b;
+  --border: #d2d5c8;
+  --canvas: #f5f4ee;
+  --surface: #fffef9;
+  --accent-soft: #e7ede2;
+  --map-shadow: 0 5px 16px rgb(32 41 35 / 12%);
+  --chart-net: #294c3c;
+  --chart-discounted: #486f8b;
+  --chart-expenses: #94611e;
+  --chart-range: #dce7d8;
+}
+
+body {
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+.app-header {
+  background: var(--canvas);
+  padding-inline: clamp(16px, 4vw, 64px);
+}
+
+.brand {
+  color: var(--ink);
+  font-weight: 800;
+  letter-spacing: -.05em;
+  white-space: nowrap;
+}
+
+.brand-mark {
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--yellow);
+}
+
+.workspace-nav {
+  padding: 4px;
+  border-bottom: 1px solid var(--border);
+}
+
+.workspace-nav button {
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.workspace-nav button.active {
+  border-radius: 0;
+  background: var(--accent-soft);
+  color: var(--green);
+  box-shadow: inset 0 -2px var(--green);
+}
+
+.header-actions .button {
+  border-radius: 4px;
+  color: var(--ink);
+}
+
+.header-actions .export-button {
+  background: var(--yellow);
+  border-color: var(--yellow);
+}
+
+body[data-view=projet] .workspace,
+body[data-view=bilan] .map-workspace,
+.economics-page {
+  background: var(--canvas);
+}
+
+body[data-view=projet] .project-panel {
+  max-width: 1472px;
+  padding: clamp(24px, 4vw, 64px) clamp(16px, 4vw, 64px) 56px;
+  box-shadow: none;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(28px, 5vw, 88px);
+}
+
+.project-cover {
+  min-width: 0;
+}
+
+.project-cover .eyebrow,
+.economics-heading .eyebrow,
+.map-setup .eyebrow {
+  color: var(--muted);
+  font: 600 11px/1.4 Consolas, monospace;
+  letter-spacing: .09em;
+}
+
+body[data-view=projet] .panel-heading h1,
+.economics-heading h1 {
+  color: var(--ink);
+  font-family: Georgia, serif;
+  font-size: clamp(38px, 5.2vw, 76px);
+  font-weight: 400;
+  letter-spacing: -.055em;
+  line-height: .98;
+  margin-top: 18px;
+}
+
+.project-cover .project-intro,
+.economics-heading .project-intro {
+  color: var(--muted);
+  font-size: clamp(14px, 1.5vw, 17px);
+  max-width: 46ch;
+}
+
+.project-cover-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1.7;
+  object-fit: cover;
+  border-radius: 2px;
+  background: #77634a;
+}
+
+.setup-group,
+.map-setup,
+.map-intro,
+.layer-chips,
+.map-tools,
+.map-legend,
+.selection-pill,
+.progress-card,
+.results-panel,
+.asset-inspector,
+.economics-assumptions,
+.economic-kpi,
+.economic-chart,
+.economic-sensitivity,
+dialog {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  backdrop-filter: none;
+}
+
+.setup-group > summary {
+  color: var(--ink);
+}
+
+.setup-group[open] > summary,
+.results-tabs,
+.economic-advanced {
+  border-color: var(--border);
+}
+
+.setup-group > summary:hover,
+.layer-chip:hover,
+.layer-chip.active,
+.scenario-card.selected,
+.field-tip,
+.map-setup .map-project-summary,
+.setup-group .power-preview {
+  background: var(--accent-soft);
+  color: var(--ink);
+}
+
+.field,
+.field input,
+.field select,
+.label-with-value,
+.map-setup h1,
+.results-heading h2,
+.scenario-title,
+.scenario-values strong,
+.asset-inspector h3,
+.economics-assumptions h2,
+.economic-chart figcaption,
+.economic-sensitivity h2,
+.economic-kpi strong {
+  color: var(--ink);
+}
+
+.field-help,
+.map-setup > p,
+.results-content .result-intro,
+.economic-kpi h2,
+.economic-kpi p,
+.economic-scope {
+  color: var(--muted);
+}
+
+.field input,
+.field select,
+.label-with-value input {
+  border-color: var(--border);
+}
+
+.field input:focus,
+.field select:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 2px var(--accent-soft);
+}
+
+.field-info {
+  background: var(--accent-soft);
+  border-color: var(--border);
+}
+
+.panel-footer .primary,
+.map-setup .primary,
+.economics-form .primary {
+  background: var(--yellow);
+  border: 1px solid var(--ink);
+  border-radius: 4px;
+  box-shadow: none;
+  color: var(--ink);
+}
+
+.panel-footer .primary:hover:not(:disabled),
+.map-setup .primary:hover:not(:disabled),
+.economics-form .primary:hover:not(:disabled) {
+  background: var(--ink);
+  color: var(--surface);
+}
+
+body[data-view=projet] .panel-footer {
+  box-shadow: none;
+}
+
+.map-setup h1,
+.results-heading h2 {
+  font-size: clamp(23px, 2.8vw, 34px);
+  letter-spacing: -.05em;
+  line-height: 1.06;
+}
+
+.leaflet-tile-pane {
+  filter: saturate(.45) sepia(.1);
+}
+
+.economics-heading h1 {
+  font-size: clamp(36px, 4.4vw, 64px);
+}
+
+.setup-groups {
+  gap: 0;
+  border-top: 2px solid var(--green);
+}
+
+.setup-group {
+  border-width: 0 0 1px;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+}
+
+.setup-group > summary {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  list-style: none;
+  padding-inline: 0;
+}
+
+.setup-group > summary::-webkit-details-marker {
+  display: none;
+}
+
+.setup-group > summary::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  flex: none;
+  margin: 0 8px 4px auto;
+  border: solid var(--green);
+  border-width: 0 1.5px 1.5px 0;
+  transform: rotate(45deg);
+}
+
+.setup-group[open] > summary::after {
+  margin-bottom: 0;
+  transform: rotate(225deg);
+}
+
+.setup-group > summary .chevron {
+  display: none;
+}
+
+.setup-group:not([open]) > summary:hover {
+  background: var(--accent-soft);
+  border-radius: 0;
+}
+
+.setup-group-body,
+.setup-group .settings-content {
+  padding-inline: 0;
+}
+
+.field input,
+.field select,
+.label-with-value input {
+  background: var(--surface);
+  border-radius: 4px;
+}
+
+.economic-kpis {
+  gap: 0;
+  border-block: 1px solid var(--border);
+}
+
+.economic-kpi,
+.economic-chart,
+.economic-sensitivity {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.economic-kpi:nth-child(even) {
+  border-left: 1px solid var(--border);
+}
+
+.economic-kpi:nth-child(n+3),
+.economic-chart,
+.economic-sensitivity {
+  border-top: 1px solid var(--border);
+}
+
+.economic-kpi strong,
+.scenario-values strong,
+.selection-pill {
+  font-variant-numeric: tabular-nums;
+}
+
+.economic-legend .cash::before { background: var(--chart-net); }
+.economic-legend .discounted::before { background: var(--chart-discounted); }
+.economic-legend .expenses::before { background: var(--chart-expenses); }
+.economic-legend .range::before { background: var(--chart-range); }
+
+.results-tabs button,
+.map-legend small,
+.legend-labels,
+.results-content .result-note,
+.scenario-values label,
+.scenario-card .scenario-note,
+.economic-legend {
+  color: var(--muted);
+}
+
+.button:disabled,
+.workspace-nav button:disabled {
+  color: var(--muted);
+  opacity: .7;
+}
+
+.layer-chips {
+  min-width: 0;
+  justify-content: flex-start;
+  overflow: auto;
+}
+
+.layer-chip {
+  flex-shrink: 0;
+}
+
+:is(button, a, summary, input, select):focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 3px;
+}
+
+@media (max-width: 850px) {
+  body[data-view=projet] .project-panel {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 680px;
+  }
+}
+
+@media (max-width: 560px) {
+  .app-header {
+    position: relative;
+    height: 104px;
+    align-items: flex-start;
+    padding-top: 12px;
+  }
+
+  .workspace {
+    height: calc(100dvh - 104px);
+  }
+
+  .workspace-nav {
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    bottom: 9px;
+    justify-content: space-between;
+    gap: 2px;
+  }
+
+  .workspace-nav button {
+    flex: 1;
+    min-height: 34px;
+    white-space: normal;
+  }
+
+  .header-actions #export-button:not([hidden]) {
+    display: inline-flex;
+  }
+
+  .project-cover-image {
+    aspect-ratio: 2.2;
+  }
+}
