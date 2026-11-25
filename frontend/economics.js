@@ -14,11 +14,11 @@ function chartFrame(title,values,years){
   let min=Math.min(0,...values),max=Math.max(0,...values);if(max===min)max=min+1;
   const padding=(max-min)*.08;min-=padding;max+=padding;
   const x=year=>65+year/Math.max(1,years)*675,y=value=>255-(value-min)/(max-min)*230;
-  for(let i=0;i<=4;i++){const value=min+(max-min)*i/4;graphic.append(svg('line',{x1:65,x2:740,y1:y(value),y2:y(value),stroke:'#e3e9ef'}));const label=svg('text',{x:57,y:y(value)+4,'text-anchor':'end',fill:'#62788c','font-size':11});label.textContent=fmt(value/unit,0);graphic.append(label);}
-  const unitLabel=svg('text',{x:65,y:15,fill:'#62788c','font-size':11});unitLabel.textContent=unit===1000?'k€':'€';graphic.append(unitLabel);
-  for(let i=0;i<=5;i++){const year=Math.round(years*i/5),label=svg('text',{x:x(year),y:278,'text-anchor':'middle',fill:'#62788c','font-size':11});label.textContent='An '+year;graphic.append(label);}
+  for(let i=0;i<=4;i++){const value=min+(max-min)*i/4;graphic.append(svg('line',{x1:65,x2:740,y1:y(value),y2:y(value),stroke:'var(--border)'}));const label=svg('text',{x:57,y:y(value)+4,'text-anchor':'end',fill:'var(--muted)','font-size':11});label.textContent=fmt(value/unit,0);graphic.append(label);}
+  const unitLabel=svg('text',{x:65,y:15,fill:'var(--muted)','font-size':11});unitLabel.textContent=unit===1000?'k€':'€';graphic.append(unitLabel);
+  for(let i=0;i<=5;i++){const year=Math.round(years*i/5),label=svg('text',{x:x(year),y:278,'text-anchor':'middle',fill:'var(--muted)','font-size':11});label.textContent='An '+year;graphic.append(label);}
   graphic.append(svg('line',{x1:65,x2:740,y1:y(0),y2:y(0),stroke:'#90a4b8','stroke-dasharray':'4 3'}));
-  const zero=svg('text',{x:57,y:y(0)+4,'text-anchor':'end',fill:'#294b6a','font-size':11});zero.textContent='0';graphic.append(zero);
+  const zero=svg('text',{x:57,y:y(0)+4,'text-anchor':'end',fill:'var(--ink)','font-size':11});zero.textContent='0';graphic.append(zero);
   figure.append(graphic);return {figure,graphic,x,y};
 }
 
@@ -27,8 +27,8 @@ function cumulativeChart(data){
   values.push(...data.optimistic.rows.map(row=>row.cumulative_eur),...data.pessimistic.rows.map(row=>row.cumulative_eur));
   const {figure,graphic,x,y}=chartFrame('Quand le projet rembourse-t-il son investissement ?',values,data.assumptions.years);
   const band=[...data.optimistic.rows.map(row=>[x(row.year),y(row.cumulative_eur)]),...data.pessimistic.rows.toReversed().map(row=>[x(row.year),y(row.cumulative_eur)])];
-  graphic.append(svg('polygon',{points:band.map(p=>p.join(',')).join(' '),fill:'#dce8fa',opacity:.7}));
-  for(const [key,color] of [['cumulative_eur','#2459a6'],['discounted_cumulative_eur','#20806a']]){
+  graphic.append(svg('polygon',{points:band.map(p=>p.join(',')).join(' '),fill:'var(--chart-range)',opacity:.7}));
+  for(const [key,color] of [['cumulative_eur','var(--chart-net)'],['discounted_cumulative_eur','var(--chart-discounted)']]){
     graphic.append(svg('polyline',{points:rows.map(row=>x(row.year)+','+y(row[key])).join(' '),fill:'none',stroke:color,'stroke-width':2.8}));
     for(const row of rows){const point=svg('circle',{cx:x(row.year),cy:y(row[key]),r:4,fill:color,tabindex:0});const title=svg('title');title.textContent='Année '+row.year+' · '+(key==='cumulative_eur'?'Cumul net':'Cumul actualisé')+' : '+eur(row[key]);point.append(title);graphic.append(point);}
   }
@@ -40,7 +40,7 @@ function annualChart(data){
   const rows=data.central.rows.slice(1),cost=row=>row.opex_eur+row.replacement_eur+row.decommissioning_eur;
   const {figure,graphic,x,y}=chartFrame('Recettes et dépenses, année par année',rows.flatMap(row=>[row.revenue_eur,cost(row)]),data.assumptions.years);
   const width=Math.min(9,Math.max(2,220/rows.length));
-  for(const row of rows)for(const [value,color,offset,label] of [[row.revenue_eur,'#2459a6',-width,'Recettes'],[cost(row),'#bd8050',0,'Dépenses']]){
+  for(const row of rows)for(const [value,color,offset,label] of [[row.revenue_eur,'var(--chart-net)',-width,'Recettes'],[cost(row),'var(--chart-expenses)',0,'Dépenses']]){
     const rect=svg('rect',{x:x(row.year)+offset,y:y(value),width,height:Math.max(0,y(0)-y(value)),fill:color,rx:1,tabindex:0});
     const title=svg('title');title.textContent='Année '+row.year+' · '+label+' : '+eur(value);rect.append(title);graphic.append(rect);
   }

@@ -8,6 +8,7 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 from unittest.mock import patch
 import pandas as pd
+import numpy as np
 from shapely.geometry import Point,mapping
 from fastapi.testclient import TestClient
 
@@ -22,6 +23,7 @@ from backend.serialization import serialize_result
 class AnalysisFixture:
     def __init__(self,*,country="France",network_error=None,context_error=None,cadastre_error=None,with_parcels=True):
         self.stack=ExitStack()
+        self.stack.enter_context(patch('backend.siting.ign_elevations',side_effect=lambda x,y:np.zeros_like(x)))
         self.stack.enter_context(patch('backend.siting.regulatory_context',return_value=dict(status='partial',checks=[],features=[],exclusions=Point().buffer(0))))
         self.point=core.metric(Point(3.88,43.61))
         point=self.point
@@ -114,6 +116,15 @@ class ServiceTests(unittest.TestCase):
             result=analyze(fixture.config)
         self.assertIsNone(result["missing"])
         self.assertTrue(result["scenarios"][2]["unavailable"])
+
+    def test_steep_and_unverified_parcels_are_never_proposed(self):
+        for grade, decision in ((.15, 'accepted'), (.16, 'insufficient_land'), (np.nan, 'source_unavailable')):
+            with self.subTest(grade=grade), AnalysisFixture() as fixture, patch(
+                'backend.siting.ign_elevations', side_effect=lambda x,y:(x-x.min())*grade,
+            ):
+                result=analyze(fixture.config)
+                self.assertEqual(result['site_comparison'][0]['decision'],decision)
+                self.assertEqual(result['scenarios'][2]['unavailable'],grade != .15)
 
     def test_cadastre_failure_does_not_become_a_false_empty_search(self):
         with AnalysisFixture(cadastre_error=ValueError("cadastre unavailable")) as fixture:

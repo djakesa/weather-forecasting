@@ -6,6 +6,7 @@ from countries import context_country
 from enedis_constraints import annotate as annotate_grid, context as grid_context, public as public_grid
 from regulatory import annotate_parcels, regulatory_context
 
+from .adapters.elevation import ign_elevations
 from .adapters.providers import provider
 from .application.ports import SiteSources
 from .application.siting import candidate_centers, evaluate_sites as screen_sites, imported_features
@@ -24,6 +25,7 @@ def evaluate_sites(
         rpg_overlap=france_pv.rpg_overlap,
         read_rpg=partial(provider, france_pv.read_rpg),
         allocate=france_pv.allocate,
+        elevations=partial(provider, ign_elevations),
     )
     return screen_sites(
         config, boundary, preferred, samples, assets, progress,

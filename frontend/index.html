@@ -2,20 +2,26 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f2f3f7">
+  <meta name="theme-color" content="#f5f4ee">
   <title>Atlas Solaire — Étude photovoltaïque</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23075bc9'/%3E%3Ccircle cx='16' cy='16' r='8' fill='%23ffd77b'/%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%23202923'/%3E%3Ccircle cx='16' cy='16' r='8' fill='%23e9c46b'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="/assets/vendor/leaflet.css"><link rel="stylesheet" href="/assets/styles.css">
-<link rel="stylesheet" href="/assets/workspace.css"></head>
+  <link rel="stylesheet" href="/assets/workspace.css">
+  <link rel="stylesheet" href="/assets/editorial.css">
+</head>
 <body data-view="projet">
 <header class="app-header">
-  <a class="brand" href="/" aria-label="Atlas Solaire, accueil"><span class="brand-mark">◒</span><span>atlas<span class="brand-light">solaire</span><small>ÉTUDE & IMPLANTATION</small></span></a>
+  <a class="brand" href="/" aria-label="Atlas Solaire, accueil"><span class="brand-mark" aria-hidden="true">◒</span><span>Atlas Solaire</span></a>
   <div class="header-divider"></div><div class="project-heading"><span class="eyebrow">ESPACE DE TRAVAIL</span><span id="project-heading">Nouveau projet photovoltaïque</span></div>
-  <div class="header-actions"><span class="local-status" id="api-status"><i></i>Connexion…</span><button class="button ghost" id="history-button"><span data-icon="history"></span>Projets récents</button><button class="button export-button" id="export-button" disabled><span data-icon="download"></span>Exporter</button></div>
+  <div class="header-actions"><span class="local-status" id="api-status"><i></i>Connexion…</span><button class="button ghost" id="history-button" aria-label="Projets récents" title="Projets récents"><span data-icon="history"></span>Projets récents</button><button class="button export-button" id="export-button" aria-label="Exporter" title="Exporter" disabled><span data-icon="download"></span>Exporter</button></div>
 </header>
 <main class="workspace">
   <aside class="project-panel" id="project-panel">
-    <div class="panel-heading"><div><span class="eyebrow">PARAMÈTRES</span><h1>Votre projet</h1></div><button class="icon-button mobile-close" id="close-panel" aria-label="Fermer les paramètres" data-icon="close"></button></div>
+    <div class="project-cover">
+      <div class="panel-heading"><div><span class="eyebrow">ÉTUDE PHOTOVOLTAÏQUE</span><h1>Décrivez votre projet</h1></div><button class="icon-button mobile-close" id="close-panel" aria-label="Fermer les paramètres" data-icon="close"></button></div>
+      <p class="project-intro">Renseignez les caractéristiques de votre installation, puis choisissez la zone à étudier sur la carte.</p>
+      <img class="project-cover-image" src="/assets/solar-field.jpg" alt="" width="1200" height="800">
+    </div>
     <form id="project-form">
       <label class="field">Nom du projet<input id="project-name" name="name" value="Mon projet solaire" maxlength="100" required></label>
       <button type="button" class="button ghost reset-project" id="reset-project">↻ Recommencer une analyse</button>

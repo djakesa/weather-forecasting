@@ -7,6 +7,7 @@ from shapely.ops import unary_union
 from backend.domain.costs import capex, connection
 from backend.domain.geometry import geographic, metric
 from backend.domain.inventory import apply_verified_inventory
+from backend.domain.slope import MAX_SLOPE_PERCENT, parcel_slopes
 from connection_preferences import apply_voltage_preferences, capex_for_connection
 
 from .ports import SiteSources, SourceUnavailable
@@ -148,13 +149,40 @@ def evaluate_sites(config,boundary,preferred,samples,assets,progress,parcels,ter
             excluded=excluded.union(electrical)
             if all(v<=50 for v in config.connection_voltages_kv):
                 excluded=excluded.union(zones['exclusions'])
-            available=unary_union([metric(shape(f['geometry'])).buffer(0) for f in features]).intersection(area)
+            observed=[metric(shape(f['geometry'])).buffer(0).intersection(area) for f in features]
+            available=unary_union(observed)
             diagnostics=[]
             for label,mask in [('Obstacles physiques',physical),('Marge autour des ouvrages électriques',electrical),('Saturation Enedis HTA/BT',zones['exclusions'] if all(v<=50 for v in config.connection_voltages_kv) else Point().buffer(0))]:
                 before=available.area;available=available.difference(mask)
                 diagnostics.append(dict(reason=label,removed_m2=max(0,before-available.area),remaining_m2=available.area))
+            progress(f'Secteur {index+1} : vérification des pentes (IGN)…')
+            slopes=parcel_slopes(observed,area,sources.elevations)
+            eligible=[]
+            eligible_geometries=[]
+            unknown=0
+            for feature, geometry, slope in zip(features,observed,slopes):
+                if geometry.area == 0:
+                    continue
+                feature['properties']['pente_max_pct']=round(slope,2) if slope is not None else None
+                if slope is None:
+                    unknown+=1
+                elif slope<=MAX_SLOPE_PERCENT:
+                    eligible.append(feature)
+                    eligible_geometries.append(geometry)
+            if unknown:
+                outcome['warnings'].append(f'Altimétrie IGN incomplète : {unknown} parcelle(s) écartée(s) faute de pente vérifiable.')
+            checked=unary_union([g for g,s in zip(observed,slopes) if s is not None])
+            for label,mask in [
+                ('Pente non vérifiable',checked),
+                (f'Pente supérieure à {MAX_SLOPE_PERCENT} %',unary_union(eligible_geometries)),
+            ]:
+                before=available.area
+                available=available.intersection(mask)
+                diagnostics.append(dict(reason=label,removed_m2=max(0,before-available.area),remaining_m2=available.area))
             outcome['metadata']['land_diagnostics']=diagnostics
-            footprints,missing=sources.allocate(features,area,excluded,area,center,config.surface,config.coverage,rpg_indicator=True)
+            if unknown and checked.is_empty:
+                raise SourceUnavailable('Aucune pente parcellaire vérifiable avec les données IGN.')
+            footprints,missing=sources.allocate(eligible,area,excluded,area,center,config.surface,config.coverage,rpg_indicator=True)
             outcome.update(footprints=footprints,missing=missing,computed=True)
             if not footprints:
                 main=max(diagnostics,key=lambda item:item['removed_m2'])

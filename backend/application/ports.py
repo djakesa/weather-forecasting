@@ -34,3 +34,4 @@ class SiteSources:
     rpg_overlap: Callable
     read_rpg: Callable
     allocate: Callable
+    elevations: Callable

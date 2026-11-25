@@ -4,6 +4,7 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 import xml.etree.ElementTree as ET
 import pandas as pd
+import numpy as np
 from shapely.geometry import Point,mapping
 from shapely.ops import unary_union
 import france_pv as core
@@ -20,6 +21,8 @@ class SitingTests(unittest.TestCase):
         self.empty=Point().buffer(0)
         grid=patch('backend.siting.grid_context',return_value=dict(status='checked',features=[],coverage_share=1,exclusions=self.empty))
         grid.start();self.addCleanup(grid.stop)
+        elevation=patch('backend.siting.ign_elevations',side_effect=lambda x,y:np.zeros_like(x))
+        elevation.start();self.addCleanup(elevation.stop)
         temporary=TemporaryDirectory();self.addCleanup(temporary.cleanup)
         patcher=patch('france_pv.CACHE',Path(temporary.name));patcher.start();self.addCleanup(patcher.stop)
 

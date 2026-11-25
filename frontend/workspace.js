@@ -1,9 +1,7 @@
 /* Guided information page, then point selection and analysis on the map. */
 export function setupWorkspace(onResize){
-  const form=document.getElementById('project-form'),panel=document.getElementById('project-panel');
+  const form=document.getElementById('project-form');
   const sections=[...form.querySelectorAll(':scope > .form-section')],settings=[...form.querySelectorAll(':scope > details')];
-  const heading=panel.querySelector('.panel-heading');heading.querySelector('.eyebrow').textContent='ÉTAPE 1 SUR 3';heading.querySelector('h1').textContent='Décrivez votre projet';
-  const intro=document.createElement('p');intro.className='project-intro';intro.textContent='Renseignez vos besoins. Vous choisirez le point et le rayon sur la carte à l’étape suivante.';heading.after(intro);
   const name=form.querySelector(':scope > .field'),reset=document.getElementById('reset-project');reset.hidden=true;
   const groups=document.createElement('div');groups.className='setup-groups';form.prepend(groups);
   function group(title,children,open=false){const el=document.createElement('details');el.className='setup-group';el.open=open;const summary=document.createElement('summary');summary.textContent=title;const body=document.createElement('div');body.className='setup-group-body';body.append(...children);el.append(summary,body);groups.append(el);return el;}
